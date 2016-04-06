@@ -8,7 +8,7 @@ if(!isset($_SESSION)){
 }
 if(isset($_GET['id_regional_selec'])) {
     $id_regional = $_GET['id_regional_selec'];
-}
+}   
     $controladorRegional = new ControladorRegional();
     $controladorUsuario = new ControladorUsuario();
     $regionais = $controladorRegional->buscarTodasRegionais();

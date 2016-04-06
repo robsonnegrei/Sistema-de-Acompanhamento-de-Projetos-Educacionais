@@ -16,36 +16,25 @@ class PeriodoDAO{
         try{
             $this->conexao = $conexao;
         }catch(Exception $e){
-            return false;
+            return -1;
         }
     }
-
-
-    //alterado
     public function inserir(Periodo $periodo){
-
-        try {
             $sql = "insert into periodo(nivel, idAluno, idPeriodo) values (?,?,?)";
-
             $a = $this->conexao->prepare($sql);
 
             $a->bindParam(1, $periodo->nivel);
             $a->bindParam(2, $periodo->idAluno);
             $a->bindParam(3, $periodo->idPeriodo);
-
-            return $a->execute();
-
-        }catch (Exception $e) {
-            return false;
-        }
+            if( !$a->execute())
+                return -1;
+            return 1;
     }
-
     public function editar($periodo){
         $nivel = $periodo->nivel;
         $idAluno = $periodo->idAluno;
         $idPeriodo = $periodo->idPeriodo;
 
-        try {
             $sql = "update periodo set nivel= ? where idPeriodo = ? and idAluno = ?";
 
             $a = $this->conexao->prepare($sql);
@@ -53,33 +42,21 @@ class PeriodoDAO{
             $a->bindParam(1, $nivel);
             $a->bindParam(2, $idPeriodo);
             $a->bindParam(3, $idAluno);
-            
-
-            return $a->execute();
-
-        }catch (Exception $e) {
-            return false;
-        }   
+            if(! $a->execute())
+                return -1;
+            return 1;
     }
-
-
     public function remover(Periodo $periodo){
-        try{
+
             $sql = "delete from periodo where idPeriodo = ? ";
-
             $a = $this->conexao->prepare($sql);
-
             $a->bindParam(1,$periodo->getIdPeriodo());
-
-            return $a->execute();
-        }catch(Exception $e){
-            return false;
-        }
-
+            if(! $a->execute())
+                return -1;
+            return 1;
     }
     public function editarPeriodo(Periodo $periodo){
 
-        try{
             $sql = "update periodo set nivel = ?, idAluno = ? where idPeriodo= ?";
 
             $a = $this->conexao->prepare($sql);
@@ -87,22 +64,18 @@ class PeriodoDAO{
             $a->bindParam(2,$periodo->getIdAluno());
             $a->bindParam(3,$periodo->getIdPeriodo());
 
-            return $a->execute();
+            if(!$a->execute())
+                return -1;
+            return 1;
 
-        }catch(Exception $e){
-            return false;
-        }
     }
-
-
     public function getIdAlunoPeriodo(Periodo $periodo){
-        try {
+
             $sql = "select * from periodo where idPeriodo = ".$periodo->idPeriodo;
-
             $resultado = $this->conexao->query($sql);
-
+            if(!isset($resultado))
+                return -1;
             $arrayIdAlunos = array();
-            
             foreach ($resultado as $valor) {
                 # code...
                 $aluno = new Aluno();
@@ -110,42 +83,24 @@ class PeriodoDAO{
                 $aluno->nivel = $valor['nivel'];
                 array_push($arrayIdAlunos, $aluno);
             }
-
             return $arrayIdAlunos;
-        }catch (Exception $e){
-            return null;
-        }
     }
-
     public function getNivelAluno($idPeriodo,$idAluno){
-        try{
             $sql = "select *from periodo where idPeriodo = ? and idAluno = ?";
-
             $stm = $this->conexao->prepare($sql);
-
             $stm->bindParam(1,$idPeriodo);
             $stm->bindParam(2,$idAluno);
-
             if(!$stm->execute())
-                return false;
-
+                return -1;
             $dados = $stm->fetchObject();
-
             return $dados;
-
-        }catch(Exception $e){
-            return false;
-        }
     }
-
     public function getValoresEscolaPeriodo($idEscola, $periodo){
         $controladorAluno = new ControladorAluno();
         $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
-        
         $array_valores = array();
-    
-        try{
-            
+            if(!isset($alunos))
+                return -1;
             foreach ($alunos as $aluno) {
                 # code...
                 $sql = "select nivel from periodo where idPeriodo = ".$periodo." and idAluno = ".$aluno->idAluno;
@@ -155,19 +110,7 @@ class PeriodoDAO{
                     # code...
                     array_push($array_valores, $valor['nivel']);
                 }
-
             }
-            
-            return $array_valores;
-        }catch(Exception $e){
-            return null;
-        }
-
         return $array_valores;
     }
-
-
-
-
-
 }

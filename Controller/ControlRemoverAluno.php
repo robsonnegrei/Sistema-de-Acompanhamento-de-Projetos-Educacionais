@@ -1,18 +1,12 @@
 <?php 
-	include_once '/var/www/html/SistemaSME/Model/AlunoDAO.php';
-	include_once '/var/www/html/SistemaSME/Model/Aluno.php';
-
-
+	include_once '../Model/AlunoDAO.php';
+	include_once '../Model/Aluno.php';
 	$aluno = new Aluno();
-	
 	$idAluno = $id = $_GET['cod'];
 	$idEscola = $_GET['idEscola'];
-
 	$alunoDAO = new AlunoDAO();
-	if(!is_bool($alunoDAO))
+	if(($alunoDAO) != -1)
 		$alunoDAO->removerAluno($idAluno);
-
-
-	header("Location: http://localhost/SistemaSME/View/ListaAlunosEscolaNew.php?idEscola=$idEscola");
+	header("Location:../View/ListaAlunosEscolaNew.php?idEscola=$idEscola");
 
 ?>

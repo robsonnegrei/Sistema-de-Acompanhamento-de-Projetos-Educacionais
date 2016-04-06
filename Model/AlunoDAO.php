@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 include_once '../Controller/Conexao.php';
 include_once '../Model/Aluno.php';
 class AlunoDAO{
@@ -13,140 +12,95 @@ class AlunoDAO{
     		return false;
     	}
     }
-
-
-	//alterado
 	public function inserir(Aluno $aluno){
 
-        try {
             $sql = "insert into aluno(nome_aluno, idTurma) values (?,?)";
-
             $a = $this->conexao->prepare($sql);
-
             $a->bindParam(1, $aluno->getNome());
             $a->bindParam(2, $aluno->getidTurma());
+            $resultado = $a->execute();
+		if (is_object(@$resultado)){
+			return 1;
+		}
+		return -1;
 
-            return $a->execute();
-
-        }catch (Exception $e) {
-            throw new Exception();
-        }
 	}
-
-
-	//FEITO
 	public function remover(Aluno $aluno){
-		try{
-			$sql = "delete from aluno where idAluno = ? ";
 
-			$a = $this->conexao->prepare($sql);
+		$sql = "delete from aluno where idAluno = ? ";
+		$a = $this->conexao->prepare($sql);
 
-			$a->bindParam(1,$aluno->getIdAluno());
+		$a->bindParam(1,$aluno->getIdAluno());
 
-			return $a->execute();
-		}catch(Exception $e){
-			throw new Exception();
+		$resultado = $a->execute();
+		if(is_object($resultado)){
+			return 1;
 		}
-		
+		return -1;
 	}
-
-
 	public function getAlunosTurma(Aluno $aluno){
-		try{
-			$sql = "select *from aluno where idTurma = ?";
 
-			$a = $this->conexao->prepare($sql);
-
-			$a->bindParam(1,$aluno->getIdTurma());
-
-			if(!$a->execute())
-				return false;
-
+		$sql = "select *from aluno where idTurma = ?";
+		$a = $this->conexao->prepare($sql);
+		$a->bindParam(1,$aluno->getIdTurma());
+		$resultado = $a->execute();
+		if(is_object($resultado)) {
 			$arrayalunos = array();
-
-			while($aluno = $a->fetchObject())
-				array_push($arrayalunos,$aluno);
-
+			while ($aluno = $a->fetchObject())
+				array_push($arrayalunos, $aluno);
 			return $arrayalunos;
-
-		}catch(Exception $e){
-			throw new Exception();
-		}
-
+			}
+		return -1;
 	}
-
-
-	//alterado
 	public function getAlunos(){
-		try {
-            $sql = "select * from aluno";
 
-            $a = $this->conexao->prepare($sql);
-
-            if(!$a->execute())
-                return false;
-
-            $arrayAlunos = array();
-
-            while ($aluno = $a->fetchObject())
-                array_push($arrayAlunos, $aluno);
-
-            return $arrayAlunos;
-        }catch (Exception $e){
-            throw new Exception();
-        }
+		$sql = "select * from aluno";
+		$a = $this->conexao->prepare($sql);
+		$resultado = $a->execute();
+		if(is_object($resultado)) {
+			$arrayAlunos = array();
+			while ($aluno = $a->fetchObject())
+				array_push($arrayAlunos, $aluno);
+			return $arrayAlunos;
+		  }
+		return -1;
 	}
-
-
 	public function getAluno(Aluno $aluno){
-		try{
-			
+
 			$sql = "select * from aluno where idAluno = ?";
-
-			$a = $this->conexao->prepare($sql);	
+			$a = $this->conexao->prepare($sql);
 			$a->bindParam(1,$aluno->idAluno);
-			if(!$a->execute())
-				return false;
-
-
-			$aluno = $a->fetchObject();		
-			
-			return $aluno;
-
-		}catch(Exception $e){
-			echo errorInfo();
-			throw new Exception();
-		}
+			$resultado = $a->execute();
+			if(is_object($resultado)) {
+				$aluno = $a->fetchObject();
+				return $aluno;
+			}
+		return -1;
 	}
-
 	public function editarAluno(Aluno $aluno){
 
-		try{
-			$sql = "update aluno set nome_aluno = ?, idTurma = ? where idAluno= ?";
+		$sql = "update aluno set nome_aluno = ?, idTurma = ? where idAluno= ?";
 
-			$a = $this->conexao->prepare($sql);
-			$a->bindParam(1,$aluno->getNome());
-			$a->bindParam(2,$aluno->getIdTurma());
-			$a->bindParam(3,$aluno->getIdAluno());
+		$a = $this->conexao->prepare($sql);
+		$a->bindParam(1, $aluno->getNome());
+		$a->bindParam(2, $aluno->getIdTurma());
+		$a->bindParam(3, $aluno->getIdAluno());
 
-			return $a->execute();
-
-		}catch(Exception $e){
-			throw new Exception();
+		$resultado = $a->execute();
+		if(is_bool($resultado)){
+			return 1;
 		}
+		return -1;
 	}
-
 	public function getAlunosDaEscola($idEscola){
-		try{
 
-			$sql = "select a.idAluno, a.nome_aluno, a.idTurma from aluno a, turma t where a.idTurma = t.idTurma and t.idEscola = ".$idEscola." order by a.nome_aluno";
+			$sql = "select a.idAluno, a.nome_aluno, a.idTurma from aluno a, turma t where a.idTurma = t.idTurma and
+ 					t.idEscola = ".$idEscola." order by a.nome_aluno";
 			$resultado = $this->conexao->query($sql);
 
 			$alunos = array();
 
-
 			foreach ($resultado as $valor) {
-				# code...
 				$aluno = new Aluno();
 				$aluno->idAluno = $valor['idAluno'];
 				$aluno->nome = $valor['nome_aluno'];
@@ -154,40 +108,26 @@ class AlunoDAO{
 
 				array_push($alunos, $aluno);
 			}
+			if(is_object($aluno)) {
+				return $alunos;
+			}
+			return -1;
 
-			return $alunos;
-
-		}catch(Exception $e){
-			$aluno = new $Aluno();
-			$a = array();
-			array_push($a, $aluno);
-			return $a;
-			// TODO o que ser isso? perguntar ao LUCAS
-		}	
 	}
-
 	public function pesquisarAluno($nome){
-		try{
-			$sql = "select *from aluno where nome_aluno like '".$nome."' ";
+		$sql = "select *from aluno where nome_aluno like '" . $nome . "' ";
 
-			$stm = $this->conexao->prepare($sql);
+		$stm = $this->conexao->prepare($sql);
 
-			if(!$stm->execute())
-				return false;
-			
-			//$stm->bindParam(1,$nome);
-
+		$resultado = $stm->execute();
+		if (is_object($resultado)) {
 			$alunos = array();
-
-			while($aluno = $stm->fetchObject())
+			while ($aluno = $stm->fetchObject())
 				array_push($alunos, $aluno);
-			
 			return $alunos;
-		}catch(Exception $e){
-			throw new Exception();
 		}
+		return -1;
 	}
-
 	//ESSA PARTE É PARA A CRIAÇÃO DO GRÁFICOS
 	/*
 	public function getQtdPorMesPreSilabico($periodo,$idEscola){
@@ -229,9 +169,5 @@ class AlunoDAO{
 		$nivelO = $row['nivelO'];
 		return $nivelO;
 	}*/
-
-
-
 }
-	
 ?>

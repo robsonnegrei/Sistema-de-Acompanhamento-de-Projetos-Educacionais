@@ -9,64 +9,40 @@ class EscolaDAO{
 		try{
 			$this->conexao = Conexao::getConexao();
 		}catch(Exception $e){
-			return false;
+			return -1;
 		}
 	}
 
 
 
 	public function getAllEscolas(){
-		try{
-			$sql = "select * from escola";
-
-			$a = $this->conexao->prepare($sql);
-
-			if(!$a->execute())
-				return false;
-
-			$arrayEscolas = array();
-
-			while ($escola = $a->fetchObject())
-				array_push($arrayEscolas, $escola);
-
-			return $arrayEscolas;
-		}catch(Exception $e){
-			return false;
-		}
+		$sql = "select * from escola";
+		$a = $this->conexao->prepare($sql);
+		if (!$a->execute())
+			return -1;
+		$arrayEscolas = array();
+		while ($escola = $a->fetchObject())
+			array_push($arrayEscolas, $escola);
+		return $arrayEscolas;
 	}
-
 	public function getEscolasRegional($idRegional){
-			
-			try{
 
-			$sql = "select *from escola where idRegional = ?";
-
-
-			$stm = $this->conexao->prepare($sql);
-
-			$stm->bindParam(1,$idRegional);
-
+		$sql = "select * from escola where idRegional = ?";
+		$stm = $this->conexao->prepare($sql);
+		$stm->bindParam(1,$idRegional);
 			if(!$stm->execute())
-				return false;
-
+				return -1;
 			$escolas = array();
-
             $arrayalunos = array();
-
             while($escola = $stm->fetchObject())
                 array_push($escolas,$escola);
 
              return $escolas;
-         }catch(Exception $e){
-         	return null; 
-         }	
-        
-
 		
 	}
 
 	public function getEscola($idEscola){
-		try{
+
 			$sql = "select * from escola where idEscola = ?";
 
 			$stm= $this->conexao->prepare($sql);
@@ -74,19 +50,12 @@ class EscolaDAO{
 			$stm->bindParam(1,$idEscola);
 
 			if(!$stm->execute())
-				return false;
-
-
+				return -1;
 			return $stm->fetchObject();
-
-		}catch(Exception $e){
-			return false;
-		}
 	}
 
 	public function inserir(Escola $escola){
 
-		try {
 			$sql = "insert into escola(nome, idRegional) values (?,?)";
 
 			$a = $this->conexao->prepare($sql);
@@ -94,42 +63,31 @@ class EscolaDAO{
 			$a->bindParam(1, $escola->getNome());
 			$a->bindParam(2, $escola->getIdRegional());
 
-			return $a->execute();
+			if( !$a->execute()){
+				return -1;
+			}
+			return 1;
 
-		}catch (Exception $e) {
-			return false;
-		}
 	}
 	public function remover(Escola $escola){
-		try{
 			$sql = "delete from escola where idEscola = ? ";
-
 			$a = $this->conexao->prepare($sql);
-
 			$a->bindParam(1,$escola->getIdEscola());
-
-			return $a->execute();
-		}catch(Exception $e){
-			return false;
-		}
+			if(!$a->execute())
+				return -1;
+			return 1;
 	}
 
 	public function editarEscola(Escola $escola){
 
-		try{
 			$sql = "update escola set nome = ? where idEscola= ?";
-
 			$a = $this->conexao->prepare($sql);
 			$a->bindParam(1,$escola->getNome());
 			$a->bindParam(2,$escola->getIdEscola());
-			
+			if(! $a->execute())
+				return -1;
+			return 1;
 
-			return $a->execute();
-
-		}catch(Exception $e){
-			return false;
-		}
 	}
-
-
+	
 }

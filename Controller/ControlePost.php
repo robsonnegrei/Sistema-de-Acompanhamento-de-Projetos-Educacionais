@@ -7,23 +7,17 @@ if(isset($_POST['acao'])){
     if($acao == "cadastrar") {
         $mensagem = $_POST['mensagem'];
         $idRegional = $_POST['idRegional'];
-        try {
-            $c = new ControlePost();
-            $c->cadastrarPost($mensagem, $idRegional);
-        }catch (Exception $e) {
+        $c = new ControlePost();
+        if($c->cadastrarPost($mensagem, $idRegional) == -1)
             header('location:../coord/indexPost.php');
-        }
     }
 }else if(isset($_GET["acao"])){
     $acao = $_GET['acao'];
     if($acao == "excluir"){
         $idPost = $_GET['idPost'];
-        try {
-            $cp = new ControlePost();
-            $cp->removerPost($idPost);
-        }catch (Exception $e) {
+        $cp = new ControlePost();
+        if($cp->removerPost($idPost) == -1)
             header('location:../coord/indexPost.php');
-        }
     }
 }
 class ControlePost{
@@ -32,36 +26,20 @@ class ControlePost{
 	public function __construct(){
     	$conexao = new PostDAO(Conexao::getConexao());
         if(is_bool($conexao))
-            throw new Exception();
+            return -1;
         $this->dao = $conexao;
     }
-
     public function cadastrarPost($mensagem,$idRegional){
-        try {
-            if (isset($mensagem)) {
-                return $this->dao->inserir($mensagem, $idRegional);
-            }
-        }catch (Exception $e){
-            throw $e;
+        if (isset($mensagem)){
+            return $this->dao->inserir($mensagem, $idRegional);
         }
     }
-
     public function pegarPostRegional($idRegional){
-        try {
-            if (isset($idRegional))
-                return $this->dao->getPostsPorRegional($idRegional);
-        }catch (Exception $e){
-            throw $e;
-        }
+        if (isset($idRegional))
+            return $this->dao->getPostsPorRegional($idRegional);
     }
-
     public function removerPost($idPost){
-        try {
-            if (!empty($idPost))
-                return $this->dao->deletePost($idPost);
-        }catch (Exception $e){
-            throw $e;
-        }
+        if (!empty($idPost))
+            return $this->dao->deletePost($idPost);
     }
-
 }

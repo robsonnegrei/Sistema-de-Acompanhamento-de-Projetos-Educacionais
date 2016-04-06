@@ -56,8 +56,9 @@
                             </i>
                             <span class="menu-title">Regionais</span>
                         </a>
-                        <a id="rg1" href="#" class="list-group-item">Centro<span class="badge">4</span></a>
-                        <a id="rg2" href="#" class="list-group-item">Campo Novo <span class="badge">4</span></a>
+
+                        <a id="rg1" href="regional.php?idRegional=12" class="list-group-item">Centro<span class="badge">4</span></a>
+                        <a id="rg2" href="regional.php?idRegional=10" class="list-group-item">Campo Novo <span class="badge">4</span></a>
                         <a id="rg3" href="#" class="list-group-item">Campo Velho <span class="badge">4</span></a>
                         <a id="rg4" href="#" class="list-group-item">José Jucá <span class="badge">4</span></a>
                         <a id="rg5" href="#" class="list-group-item">Tapuiará <span class="badge">4</span></a>
