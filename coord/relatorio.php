@@ -153,18 +153,15 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
   </head>
 
   <body>
-  
-    <div class="media" STYLE="text-align: center">
-      <div class="media-left" style="">
-        <a href="#"> <img data-holder-rendered="true" src="../img/sme.jpg" style="width: 64px; height: 64px;" class="media-object" data-src="holder.js/64x64" alt="64x64" ></a>
-      </div> 
-      <div class="media-body"> 
-        <h4 class="media-heading">Secretaria Municipal da Educa&ccedil;&atilde;o de Quixad&aacute;</h4>
-        <h3>Relat&oacute;rio</h3>
+  <div class="media" STYLE="text-align: center; font-family: Tahoma">
+      <p class="media-heading">Secretaria Municipal da Educa&ccedil;&atilde;o de Quixad&aacute;</p>
+      <div class="media-body">
+          <h4 class="media-heading">Sistema de Acompanhamento Online de Projetos Educacionais</h4>
+          <h3>Relat&oacute;rio</h3>
       </div>
-        <div class="clearfix"></div>
-        <div id="columnchart_material" style="width: 1250px; height: 500px; margin: 50px; padding: 10px; border: groove; "></div>
-    </div>
+      <div class="clearfix"></div>
+      <div id="columnchart_material" style="width: 1250px; height: 500px; margin: 50px; padding: 10px; border: groove;"></div>
+  </div>
           <!-- /.info-box -->
     <!--Div that will hold the pie chart-->
     
