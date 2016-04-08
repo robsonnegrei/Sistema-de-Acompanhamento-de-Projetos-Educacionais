@@ -18,20 +18,24 @@ if(isset($_POST['acao_periodo'])){
         $idEscola = $_POST['idEscola'];
         $periodo = $_POST['periodo'];
         $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
-        if($alunos == -1)
-            header('location:../coord/escola.php?idEscola=' . $idEscola);
-
+        if($alunos == -1){
+            // mostrar erro
+        }
         foreach ($alunos as $aluno) {
             $nivel_aluno = $_POST['id' . $aluno->idAluno];
 
             if ($controladorPeriodo->existe($periodo, $aluno->idAluno)) {
                 $c = new ControladorPeriodo();
-                if($c->editar($nivel_aluno, $periodo, $aluno->idAluno) == -1)
-                    header('location:../coord/escola.php?idEscola=' . $idEscola);
+                if($c->editar($nivel_aluno, $periodo, $aluno->idAluno) == -1) {
+                    //mostrar erro
+                }
+                header('location:../coord/escola.php?idEscola=' . $idEscola);
             }else{
                 $c = new ControladorPeriodo();
-                if($c->cadastrarNivelDoAlunoPeriodo($periodo, $nivel_aluno, $aluno->idAluno)== -1)
-                    header('location:../coord/escola.php?idEscola=' . $idEscola);
+                if($c->cadastrarNivelDoAlunoPeriodo($periodo, $nivel_aluno, $aluno->idAluno)== -1) {
+                    //mostrar erro
+                }
+                header('location:../coord/escola.php?idEscola=' . $idEscola);
             }
         }
     }
@@ -88,11 +92,11 @@ class ControladorPeriodo{
         if (isset($alunos)) {
             foreach ($alunos as $aluno) {
                 if ($aluno->idAluno == $idAluno) {
-                    return 1;
+                    return true;
                 }
             }
         }
-        return -1;
+        return false;
     }
     public function getValoresDaEscolaDoPeriodo($idEscola, $periodo){
         $valores = $this->dao->getValoresEscolaPeriodo($idEscola, $periodo);

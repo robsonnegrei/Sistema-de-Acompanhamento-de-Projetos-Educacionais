@@ -103,7 +103,7 @@ class AlunoDAO{
 			foreach ($resultado as $valor) {
 				$aluno = new Aluno();
 				$aluno->idAluno = $valor['idAluno'];
-				$aluno->nome = $valor['nome'];
+				$aluno->nome = $valor['nome_aluno'];
 				$aluno->idTurma = $valor['idTurma'];
 
 				array_push($alunos, $aluno);

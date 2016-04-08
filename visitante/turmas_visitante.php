@@ -123,9 +123,6 @@ $turmasEscola = $controladorTurma->buscarTurmasEscola($idEscola);
                     <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="none"><a href="pesquisar_alunos.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-search">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Pesquisar</span></a></li>
                       <li class="none"><a href="relatorio_regional.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Gerar Relatorio</span></a></li>
@@ -212,12 +209,8 @@ $turmasEscola = $controladorTurma->buscarTurmasEscola($idEscola);
                             <?php 
                                 if(!empty($turmasEscola)){
                                     foreach ($turmasEscola as $turma) {
-                            ?>
-                          
-                                    <a href="aluno_visitante.php?id_turma=<?php echo $turma->idTurma;?> & id_regional=<?php echo $idRegional;?>" class="list-group-item"><?php echo $turma->nome_turma; ?></a>
-                          
-                            <?php
-                                    }
+                            ?><a class="list-group-item"><?php echo $turma->nome_turma; ?></a>
+                            <?php }
                                 }else{?>
                                     <a class="list-group-item ">Não há Turmas</a>
                                 <?php } ?>

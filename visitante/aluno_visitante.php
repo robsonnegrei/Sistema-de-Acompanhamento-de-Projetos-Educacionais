@@ -127,13 +127,6 @@ $alunos = $controladorAluno->buscarAlunosPorTurma($idTurma);
                     <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Alunos</span></a></li>
-                    
-
-                    
-                    <li class="none"><a href="pesquisar_alunos.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-search">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Pesquisar</span></a></li>
-
                       <li class="none"><a href="relatorio_regional.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Gerar Relatorio</span></a></li>

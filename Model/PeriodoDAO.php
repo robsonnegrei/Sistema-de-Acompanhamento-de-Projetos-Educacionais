@@ -13,11 +13,8 @@ class PeriodoDAO{
     private $conexao;
 
     public function __construct($conexao){
-        try{
             $this->conexao = $conexao;
-        }catch(Exception $e){
-            return -1;
-        }
+
     }
     public function inserir(Periodo $periodo){
             $sql = "insert into periodo(nivel, idAluno, idPeriodo) values (?,?,?)";

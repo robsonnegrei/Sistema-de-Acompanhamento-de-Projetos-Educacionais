@@ -6,5 +6,5 @@ $_SESSION['email_login'] = "Visitante";
 if(isset($_POST['opcao'])){
 	$opcao = $_POST['opcao'];
 	if($opcao == "visitante")
-		header('location: /visitante/index.php');
+		header('location:../visitante/index.php');
 }

@@ -20,6 +20,14 @@
 	<link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css.map"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css.map"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-theme.css.map"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-theme.min.css.map"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/styles.css"/>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

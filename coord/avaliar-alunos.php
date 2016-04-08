@@ -135,7 +135,7 @@ $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Coordenador - <?php echo $_SESSION['nome_regional'];?></div>
+                            Coordenador</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         
