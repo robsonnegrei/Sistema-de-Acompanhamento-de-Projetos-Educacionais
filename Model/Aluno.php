@@ -1,6 +1,6 @@
 <?php 
 class Aluno{
-	public $nome;
+	public $nome_aluno;
 	public $idTurma;
 	public $idAluno;
     public $nivel;
@@ -8,12 +8,12 @@ class Aluno{
 
     public function getNome()
     {
-        return $this->nome;
+        return $this->nome_aluno;
     }
 
     public function setNome($nome)
     {
-        $this->nome = $nome;
+        $this->nome_aluno = $nome;
     }
 
     public function getIdTurma()

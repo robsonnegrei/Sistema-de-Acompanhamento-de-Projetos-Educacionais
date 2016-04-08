@@ -10,7 +10,7 @@ if(!isset($_SESSION)){
 
 if(isset($_GET['regional']))
     $idRegional = $_GET['regional'];
-    $_SESSION['id_regional']= $idRegional;
+    $_SESSION['id_regional']= $_GET['regional'];
 
     $controladorTurma = new ControladorTurma();
     $controladorAluno = new ControladorAluno();

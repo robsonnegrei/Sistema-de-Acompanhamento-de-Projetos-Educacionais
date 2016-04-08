@@ -397,7 +397,7 @@ hr {
 #topbar .navbar-top-links ul.dropdown-alerts li p {
   padding: 10px 15px;
   margin-bottom: 0;
-  background: #40516f;
+  background:  #0f0f0f;
   color: #ffffff;
 }
 #topbar .navbar-top-links ul.dropdown-messages {
@@ -458,7 +458,7 @@ hr {
 #topbar .navbar-top-links ul.dropdown-messages li p {
   padding: 10px 15px;
   margin-bottom: 0;
-  background: #40516f;
+  background:  #0f0f0f;;
   color: #ffffff;
 }
 #topbar .navbar-top-links ul.dropdown-tasks {
@@ -508,7 +508,7 @@ hr {
 #topbar .navbar-top-links ul.dropdown-tasks li p {
   padding: 10px 15px;
   margin-bottom: 0;
-  background: #40516f;
+  background:  #0f0f0f;
   color: #ffffff;
 }
 #topbar .navbar-top-links .dropdown-user li a {
@@ -521,7 +521,7 @@ hr {
 }
 #topbar .navbar-top-links .dropdown-user li a i {
   margin-right: 5px;
-  color: #999999;
+  color:  #0f0f0f;
 }
 #topbar .navbar-top-links .dropdown-user li a .badge {
   position: absolute;
@@ -563,7 +563,7 @@ hr {
 .page-title-breadcrumb .page-header .page-subtitle {
   font-size: 14px;
   font-weight: 300;
-  color: #bcbcbc;
+  color:  #0f0f0f;
   display: inline-block;
 }
 .page-title-breadcrumb .breadcrumb {
@@ -592,7 +592,7 @@ hr {
   top: 0;
   bottom: 0;
   width: 280px;
-  background: #40516f;
+  background:  #0f0f0f;
   z-index: 9999;
   display: none;
 }
@@ -602,7 +602,7 @@ hr {
 }
 #chat-form .user-status {
   display: inline-block;
-  background: #575d67;
+  background:  #0f0f0f;
   margin-right: 5px;
   width: 8px;
   height: 8px;
@@ -1074,7 +1074,7 @@ background: #303030; /* Old browsers */
   margin-left: 0;
   width: 195px;
   height: 50px;
-    background: #303030; /* Old browsers */
+    background: #0f0f0f;; /* Old browsers */
       outline: none;
       
 }
@@ -1865,12 +1865,11 @@ canvas {
 }
 .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon {
   background: #fff;
-  color: #999999;
+  color:  #0f0f0f;;
   display: block;
   width: 60px;
   height: 60px;
   -webkit-background-clip: padding-box;
-  -moz-background-clip: padding-box;
   background-clip: padding-box;
   border-radius: 50%;
   text-align: center;

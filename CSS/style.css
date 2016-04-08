@@ -2,7 +2,7 @@
     font-family: Tahoma;
     text-align: center;
     font-size: large;
-    color: #0D3059;
+    color: #0f0f0f;
 }
 .list-group-item{
     font-family: Tahoma;
@@ -16,7 +16,8 @@ a{
 }
 .divMenuRegional{
     border-radius: 10px;
-    background-color: #dbdbdb;
+    background-color: black;
+    width: 200px;
 }
 .pesquisa{
     font-family: Tahoma;

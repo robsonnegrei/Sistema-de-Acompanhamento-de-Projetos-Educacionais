@@ -74,11 +74,7 @@ foreach ($coordenadores as $coord){
                 <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 <a id="logo" href="index.php" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">SAPE</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
             <div class="topbar-main">
-                
-                
-                
                 <ul class="nav navbar navbar-top-links navbar-right mbn">
-                    
                     <span class="hidden-xs"><?php echo $_SESSION['email_login']; ?></span><span></span></a>
                     
                     <li class="dropdown topbar-user"><a data-hover="dropdown" href="../Controller/ControleLogin.php?acao=sair" class="dropdown-toggle"><span class="hidden-xs">Sair</span></a>
@@ -194,8 +190,6 @@ foreach ($coordenadores as $coord){
                         echo "<h3>Nenhum Coordenador</h3>";
                     }
                     ?>
-
-                    
                     <button onclick="window.location.href='cadastro-usuario.php?idRegional=<?php echo $regional->idRegional;?>'" class="btn btn-danger">Cadastrar Coordenador</button>
                     <button onclick="window.location.href='editar-regional.php?id_regional=<?php echo $regional->idRegional; ?>'" class="btn btn-warning">Editar</button>
                     <button onclick="window.location.href='../Controller/ControladorRegional.php?acao=excluir&idRegional=<?php echo $regional->idRegional;?>'" class="btn btn-primary">Excluir</button>

@@ -45,18 +45,17 @@
         <!--END TOPBAR-->
         <div id="wrapper">
             <!--BEGIN SIDEBAR MENU-->
-            <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2" data-intro="Template has <b>many navigation styles</b>" data-position="right" class="navbar-default navbar-static-side">
+            <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2"  data-position="right" class="navbar-static-side">
             <div class="left-side-collapsed">
                 <ul id="side-menu" class="nav">
                      <div class="clearfix"></div>
-                    <li class="">
+                    <li class="divMenuRegional">
                         <a href="index.php">
                             <i class="glyphicon glyphicon-align-left">
                                     <div class="icon-bg bg-orange"></div>
                             </i>
                             <span class="menu-title">Regionais</span>
                         </a>
-
                         <a id="rg1" href="regional.php?idRegional=12" class="list-group-item">Centro<span class="badge">4</span></a>
                         <a id="rg2" href="regional.php?idRegional=10" class="list-group-item">Campo Novo <span class="badge">4</span></a>
                         <a id="rg3" href="#" class="list-group-item">Campo Velho <span class="badge">4</span></a>

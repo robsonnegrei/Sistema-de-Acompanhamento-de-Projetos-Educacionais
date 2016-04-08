@@ -13,22 +13,36 @@ if(isset($_POST['acao'])){
     if($acao == "cadastrar"){
         $nome = $_POST['nome'];
         $idEscola = $_POST['idEscola'];
-        var_dump($idEscola);
         $c = new ControladorTurma();
-        if($c->cadastrarTurma($nome, $idEscola) == -1)
-            header('location:../coord/escola.php?idEscola=' . $idEscola);
+        $c->cadastrarTurma($nome, $idEscola);
+            //retornar mensagem de erro;
+        header('location:../coord/escola.php?idEscola='.$idEscola);
     }
+
 }else if(isset($_POST['acao'])){
     $acao = $_POST['acao'];
     if($acao == "excluir") {
         $idTurma = $_POST['idTurma'];
+        $idEscola = $_POST['idEscola'];
         var_dump($idEscola);
         $c = new ControladorTurma();
         $resultado = $c->removerTurma($idTurma);
+        echo  "Resultado : "+ $resultado ;
         if ($resultado == -1)
-            header('location:../coord/escola.php?idEscola=' . $idEscola);
+            header('location:../coord/escola.php?idEscola='.$idEscola);
+    }
+}else if(isset($_GET['acao'])){
+    if($_GET['acao'] == "excluir"){
+        $c = new ControladorTurma();
+        $idTurma = $_GET['idTurma'];
+        $idEscola = $_GET['idEscola'];
+        if( isset($idTurma) && $c->removerTurma($idTurma) == -1){
+            header('location:../coord/escola.php?idEscola='.$idEscola);
+        }
+        header('location:../coord/escola.php?idEscola='.$idEscola);
     }
 }
+
 class ControladorTurma{
     private $dao;
     public function __construct(){

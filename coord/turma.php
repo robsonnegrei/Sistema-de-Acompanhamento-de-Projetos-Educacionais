@@ -12,7 +12,6 @@ if(isset($_GET['idTurma'])&& isset($_GET['idEscola'])){
 if(isset($idTurma) && isset($idEscola)) {
     $controladorAluno = new ControladorAluno();
     $controladorTurma = new ControladorTurma();
-
     $alunos = $controladorAluno->buscarAlunosPorTurma($idTurma);
     $qtdAlunos = count($alunos);
     $turma = $controladorTurma->getTurma($idTurma);
@@ -130,9 +129,6 @@ if(isset($idTurma) && isset($idEscola)) {
                     <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Post</span></a></li>
-     
-                    
-                    
                 </ul>
             </div>
         </nav>
@@ -163,36 +159,30 @@ if(isset($idTurma) && isset($idEscola)) {
                             <h1>Turma<?php if(isset($turma)) echo $turma->nome; ?> - Alunos</h1>
                             <div class="col-lg-12">
                                 <div class="row">
-                                 <div class="col-lg-6">                                    
+                                 <div class="col-lg-6">
 
 
-                                        
+                                     <table border="1" class="table table-striped">
+                                         <thead>
+                                         <tr>
+                                             <th>Primeiro Nome</th>
+                                             <th></th>
+                                             <th></th>
+                                         </tr>
+                                         </thead>
+                                         <tbody>
     
                                     <?php 
-                                        if(isset($alunos) && count($alunos)>0){
+                                        if(!empty($alunos) && $qtdAlunos>0){
                                       ?>
-
-                                      <table border="1" class="table table-striped">
-                                      <thead>
-                                        <tr>
-                                          <th>Primeiro Nome</th>
-                                          <th></th>
-                                          <th></th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                    
                                     <?php
-
-                                            foreach ($alunos as $aluno) {
+                                        foreach ($alunos as $aluno) {
                                         ?>
                                             <tr>
                                                 <td><?php echo $aluno->nome_aluno;?></td>
-                                            
-                                                <td><button onclick="window.location.href='editar-aluno.php?idAluno=<?php echo $aluno->idAluno;?> & idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-success">Editar</button></td>
-                                                <td><button onclick="window.location.href='../Controller/ControladorAluno.php?acao=excluir&idAluno=<?php echo $aluno->idAluno;?> & idTurma=<?php echo $idTurma;?> & idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-danger">Excluir</button></td>
+                                                <td><button onclick="window.location.href='editar-aluno.php?idAluno=<?php echo $aluno->idAluno;?>&idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-success">Editar</button></td>
+                                                <td><button onclick="window.location.href='../Controller/ControladorAluno.php?acao=excluir&idAluno=<?php echo $aluno->idAluno;?>&idTurma=<?php echo $idTurma;?>&idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-danger">Excluir</button></td>
                                             </tr>
-                                    
                                         <?php 
                                             }
                                         }else{
@@ -209,9 +199,6 @@ if(isset($idTurma) && isset($idEscola)) {
                             </div>
                             
                         </div>
-                    
-
-
 </div>
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->

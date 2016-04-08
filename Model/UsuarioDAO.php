@@ -25,7 +25,8 @@ class UsuarioDAO{
 			return 1;
 	}
 	public function usuarioExiste($login, $senha){
-			$lista = $this->getAllUsuarios();	
+			$lista = $this->getAllUsuarios();
+			if($lista == -1) return false;
 			foreach ($lista as $usuario) {
 				if($usuario->email == $login){
 					if($usuario->senha == $senha){
@@ -98,7 +99,7 @@ class UsuarioDAO{
 			$userDAO = new UsuarioDAO();
 			$lista = $userDAO->getAllAdmin();
 			if(!isset($lista))
-				return -1;
+				return false;
 			foreach ($lista as $admin) {
 				if($admin->email == $login){
 					if($admin->senha == $senha){
@@ -106,7 +107,7 @@ class UsuarioDAO{
 					}
 				}
 			}
-			return -1;
+			return false;
 	}
 }
 

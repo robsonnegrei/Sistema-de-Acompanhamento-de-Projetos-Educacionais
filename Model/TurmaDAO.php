@@ -40,19 +40,22 @@ class TurmaDAO{
             return $arrayTurmas;
     }
     public function inserir(Turma $turma){
-            $sql = "insert into turma(nome_turma, idEscola) values (?,?)";
-            $a = $this->conexao->prepare($sql);
-            $a->bindParam(1, $turma->getNome());
-            $a->bindParam(2, $turma->getIdEscola());
+            if(isset($turma)){
+                $sql = "insert into turma(idEscola, nome_turma) values (?,?)";
+                $a = $this->conexao->prepare($sql);
+                $a->bindParam(1, $turma->idEscola);
+                $a->bindParam(2, $turma->nome);
 
-            if(!$a->execute())
+                if (!$a->execute())
+                    return -1;
+                return 1;
+            }
                 return -1;
-            return 1;
     }
     public function remover(Turma $turma){
             $sql = "delete from turma where idTurma = ? ";
             $a = $this->conexao->prepare($sql);
-            $a->bindParam(1,$turma->getIdTurma());
+            $a->bindParam(1,$turma->idTurma);
             if(!$a->execute())
                 return -1;
             return 1;
@@ -60,9 +63,9 @@ class TurmaDAO{
     public function editarTurma(Turma $turma){
             $sql = "update turma set nome_turma = ?, idEscola = ? where idTurma= ?";
             $a = $this->conexao->prepare($sql);
-            $a->bindParam(1,$turma->getNome());
-            $a->bindParam(2,$turma->getIdEscola());
-            $a->bindParam(3,$turma->getIdTurma());
+            $a->bindParam(1,$turma->nome);
+            $a->bindParam(2,$turma->idEscola);
+            $a->bindParam(3,$turma->idTurma);
             if(!$a->execute())
                 return -1;
             return 1;

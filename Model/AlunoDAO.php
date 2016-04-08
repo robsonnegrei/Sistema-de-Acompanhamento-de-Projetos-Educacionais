@@ -30,7 +30,7 @@ class AlunoDAO{
 		$sql = "delete from aluno where idAluno = ? ";
 		$a = $this->conexao->prepare($sql);
 
-		$a->bindParam(1,$aluno->getIdAluno());
+		$a->bindParam(1,$aluno->idAluno);
 
 		$resultado = $a->execute();
 		if(is_object($resultado)){
@@ -40,11 +40,11 @@ class AlunoDAO{
 	}
 	public function getAlunosTurma(Aluno $aluno){
 
-		$sql = "select *from aluno where idTurma = ?";
+		$sql = "select * from aluno where idTurma = ?";
 		$a = $this->conexao->prepare($sql);
-		$a->bindParam(1,$aluno->getIdTurma());
+		$a->bindParam(1,$aluno->idTurma);
 		$resultado = $a->execute();
-		if(is_object($resultado)) {
+		if(!empty($resultado)) {
 			$arrayalunos = array();
 			while ($aluno = $a->fetchObject())
 				array_push($arrayalunos, $aluno);
@@ -82,9 +82,9 @@ class AlunoDAO{
 		$sql = "update aluno set nome_aluno = ?, idTurma = ? where idAluno= ?";
 
 		$a = $this->conexao->prepare($sql);
-		$a->bindParam(1, $aluno->getNome());
-		$a->bindParam(2, $aluno->getIdTurma());
-		$a->bindParam(3, $aluno->getIdAluno());
+		$a->bindParam(1, $aluno->nome);
+		$a->bindParam(2, $aluno->idTurma);
+		$a->bindParam(3, $aluno->idAluno);
 
 		$resultado = $a->execute();
 		if(is_bool($resultado)){
@@ -103,12 +103,12 @@ class AlunoDAO{
 			foreach ($resultado as $valor) {
 				$aluno = new Aluno();
 				$aluno->idAluno = $valor['idAluno'];
-				$aluno->nome = $valor['nome_aluno'];
+				$aluno->nome = $valor['nome'];
 				$aluno->idTurma = $valor['idTurma'];
 
 				array_push($alunos, $aluno);
 			}
-			if(is_object($aluno)) {
+			if(!empty($alunos)) {
 				return $alunos;
 			}
 			return -1;

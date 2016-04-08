@@ -18,8 +18,6 @@ if(isset($_GET['idEscola'])) {
 }
 $nome_usuario = $_SESSION['email_login'];
 ?>
-
-
 <head>
     <title>Sare - Administrador</title>
     <meta charset="utf-8">
@@ -167,10 +165,11 @@ $nome_usuario = $_SESSION['email_login'];
                                             foreach ($turmas as $turma) {
                                     ?>
                                             <li>
-                                             <?php  if (isset($idEscola) && isset($turma)){?> <a href="turma.php?idTurma=<?php echo $turma->idTurma;?> & idEscola=<?php echo $idEscola;?>" class="list-group-item"><?php echo $turma->nome_turma; ?>
-                                                </a>
-                                                <td><button onclick="window.location.href='../Controller/ControladorTurma.php?acao=excluir&idTurma=<?php echo $idTurma;?>'"type="button" class="btn btn-danger">Excluir</button></td>
-                                                    <?php } ?>
+                                             <?php if(isset($turma)) {?>
+                                                 <a href="turma.php?idTurma=<?php echo $turma->idTurma;?>&idEscola=<?php echo $idEscola;?>" class="list-group-item">
+                                                     <?php echo $turma->nome_turma; ?>
+                                                </a><button onclick="window.location.href='../Controller/ControladorTurma.php?acao=excluir&idTurma=<?php echo $turma->idTurma?>&idEscola=<?php echo $idEscola?>'" type="button" class="btn btn-danger">Excluir</button>
+                                             <?php } ?>
                                             </li>
 
                                     <?php 

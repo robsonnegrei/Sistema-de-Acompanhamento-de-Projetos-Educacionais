@@ -131,7 +131,7 @@ $idEscola = $_GET['idEscola'];
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Coordenador - <?php echo $_SESSION['nome_regional'];?></div>
+                            Coordenador </div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li class="active">Regionais</li>
@@ -156,7 +156,9 @@ $idEscola = $_GET['idEscola'];
                             <hr>
                             <input type="hidden" name="acao" value="cadastrar"/>
                             <input type="hidden" name="idEscola" value="<?php echo $idEscola;?>"/>
-                            <button type="submit" class="btn btn-green btn-block">Cadastrar</button>
+                            <?php if(isset($idEscola)){?>
+                                <button type="submit" class="btn btn-green btn-block">Cadastrar</button>
+                            <?php } ?>
                         </form>
                     </div>
                 </div>
