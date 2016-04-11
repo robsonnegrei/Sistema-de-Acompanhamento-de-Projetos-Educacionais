@@ -11,9 +11,6 @@ $ControladorEscola = new ControladorEscola();
 
 $turmasEscola = $controladorTurma->buscarTurmasEscola($idEscola);
 ?>
-
-
-
 <head>
     <title>Sape - Visitante</title>
     <meta charset="utf-8">
@@ -123,7 +120,7 @@ $turmasEscola = $controladorTurma->buscarTurmasEscola($idEscola);
                     <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Escolas</span></a></li>
-                      <li class="none"><a href="relatorio_regional.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
+                      <li class="none"><a href="relatorio_escola.php?idEscola=<?php echo $idEscola;?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Gerar Relatorio</span></a></li>
      

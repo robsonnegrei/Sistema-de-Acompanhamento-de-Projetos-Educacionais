@@ -148,6 +148,9 @@ if(isset($idRegional)){
                             <div class="icon-bg bg-orange"></div>
                         </i><span class="menu-title">Post</span></a></li>
                         <?php if(isset($_SESSION['id_regional'])) {?>
+                            <li class="none"><a href="relatorio_regional.php?id_regional=<?php echo $_SESSION['id_regional'];?>"><i class="glyphicon glyphicon-eye-open">
+                                        <div class="icon-bg bg-orange"></div>
+                                    </i><span class="menu-title">Gerar Relatório</span></a></li>
                         <li class="none"><a href="gerar_pdf.php?id_regional=<?php echo $_SESSION['id_regional'];?>"><i class="glyphicon glyphicon-book">
                             <div class="icon-bg bg-orange"></div>
                         </i><span class="menu-title">Gerar PDF</span></a></li>
