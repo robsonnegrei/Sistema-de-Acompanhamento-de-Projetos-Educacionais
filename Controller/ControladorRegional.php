@@ -3,28 +3,14 @@ include_once 'Conexao.php';
 include_once '../Model/RegionalDAO.php';
 include_once '../Model/Usuario.php';
 
-if(isset($_POST['acao'])){
+if(isset($_POST['acao'])) {
     $acao = $_POST['acao'];
-    if($acao == "cadastrar"){
+    if ($acao == "cadastrar") {
         $nome = $_POST['nome'];
         $c = new ControladorRegional();
-        if($c->cadastrarRegional($nome) == -1)
+        if ($c->cadastrarRegional($nome) == -1)
             header('location:../admin/index.php');
 
-    }else if($acao == "editar"){
-        $nome = $_POST['nome'];
-        $idRegional = $_POST['idRegional'];
-        $c = new ControladorRegional();
-        if($c->editar($nome, $idRegional) == -1)
-            header('location:../admin/regional.php?id_regional=' . $idRegional);
-    }
-}else if(isset($_GET['acao'])){
-    $acao = $_GET['acao'];
-    if($acao == "excluir"){
-        $idRegional = $_GET['idRegional'];
-        $c = new ControladorRegional();
-        if($c->removerRegional($idRegional) == -1)
-            header('location:../admin/index.php');
     }
 }
 class ControladorRegional{
@@ -67,3 +53,4 @@ class ControladorRegional{
             return $this->dao->getAllRegionais();
     }
 }
+    ?>

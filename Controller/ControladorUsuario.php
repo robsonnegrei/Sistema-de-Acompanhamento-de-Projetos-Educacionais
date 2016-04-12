@@ -24,7 +24,29 @@ if(isset($_POST['acao'])) {
                 header('location:../admin/cadastro-usuario.php');
             header('location:../admin/index.php');
         }
+    }else if ($acao == "editar") {
+            $idRegional = $_POST['idRegional'];
+            $id = $_POST['id'];
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
+            $c = new ControladorUsuario();
+            if ($c->editar($email, $senha, $idRegional, $id) == -1) {
+                //MostrarErro
+            }
+            header('location:../admin/regional.php?id_regional_selec=' . $idRegional);
+        }
+}
+if (isset($_GET['acao'])) {
+    $acao = $_GET['acao'];
+    if ($acao == "excluir") {
+        $id = $_GET['id'];
+        $c = new ControladorUsuario();
+        if ($c->removerUsuario($id) == -1){
+            //MostrarErro
+        }
+        header('location:../admin/index.php');
     }
+
 }
 
     class ControladorUsuario{
@@ -58,7 +80,7 @@ if(isset($_POST['acao'])) {
         {
             if (isset($id)) {
                 $usuario = new Usuario();
-                $usuario->setIdAluno($id);
+                $usuario->id = $id;
                 return $this->dao->remover($usuario);
             }
         }
@@ -67,10 +89,10 @@ if(isset($_POST['acao'])) {
         {
             if (isset($email, $senha, $idRegional, $id)) {
                 $usuario = new Usuario();
-                $usuario->setEmail($email);
-                $usuario->setSenha($senha);
-                $usuario->setIdRegional($idRegional);
-                $usuario->setId($id);
+                $usuario->email = $email;
+                $usuario->senha =$senha;
+                $usuario->idRegional = $idRegional;
+                $usuario->id = $id;
                 return $this->dao->editarUsuaio($usuario);
             }
 
@@ -80,8 +102,8 @@ if(isset($_POST['acao'])) {
         {
             if (isset($id)) {
                 $usuario = new Usuario();
-                $usuario->setId($id);
-                return $this->dao->getUsuario($id);
+                $usuario->id = $id;
+                return $this->dao->getUsuario($usuario);
             }
         }
 

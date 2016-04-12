@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c77eb384-ebec-45b9-9b60-bf98dce9fe06" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/editar-regional.php" afterPath="$PROJECT_DIR$/admin/editar-coord.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coord/escola.php" afterPath="$PROJECT_DIR$/coord/escola.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coord/index.php" afterPath="$PROJECT_DIR$/coord/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coord/pesquisar_alunos.php" afterPath="$PROJECT_DIR$/coord/pesquisar_alunos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/visitante/gerar_pdf.php" afterPath="$PROJECT_DIR$/visitante/gerar_pdf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/ControladorRegional.php" afterPath="$PROJECT_DIR$/Controller/ControladorRegional.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/ControladorUsuario.php" afterPath="$PROJECT_DIR$/Controller/ControladorUsuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/UsuarioDAO.php" afterPath="$PROJECT_DIR$/Model/UsuarioDAO.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/regional.php" afterPath="$PROJECT_DIR$/admin/regional.php" />
     </list>
     <ignored path="SME-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,31 +29,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pesquisar_alunos.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coord/pesquisar_alunos.php">
+      <file leaf-file-name="regional.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/regional.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+            <state relative-caret-position="374">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="escola.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coord/escola.php">
+      <file leaf-file-name="ControladorUsuario.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/ControladorUsuario.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="93" selection-start-line="64" selection-start-column="93" selection-end-line="64" selection-end-column="93" />
+            <state relative-caret-position="1530">
+              <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coord/index.php">
+      <file leaf-file-name="editar-coord.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/editar-coord.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="153" column="127" selection-start-line="153" selection-start-column="127" selection-end-line="153" selection-end-column="127" />
+            <state relative-caret-position="136">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsuarioDAO.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/UsuarioDAO.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+              <folding>
+                <marker date="1460471934709" expanded="true" signature="324:383" placeholder="insert into usuario... " />
+                <marker date="1460471934709" expanded="true" signature="942:974" placeholder="delete from " />
+                <marker date="1460471934709" expanded="true" signature="1169:1236" placeholder="update usuar... " />
+                <marker date="1460471934709" expanded="true" signature="1548:1582" placeholder="select *from... usuario" />
+                <marker date="1460471934709" expanded="true" signature="1773:1794" placeholder="select * fro... usuario" />
+                <marker date="1460471934709" expanded="true" signature="2284:2303" placeholder="select * fro... admin" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Usuario.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/Usuario.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,7 +97,6 @@
         <option value="$PROJECT_DIR$/View/cabecalho.php" />
         <option value="$PROJECT_DIR$/Exception/NãoExisteAlunoException.php" />
         <option value="$PROJECT_DIR$/Model/Usuario.php" />
-        <option value="$PROJECT_DIR$/admin/editar-regional.php" />
         <option value="$PROJECT_DIR$/Model/Escola.php" />
         <option value="$PROJECT_DIR$/admin/cadastro-escola.php" />
         <option value="$PROJECT_DIR$/admin/editar-escola.php" />
@@ -80,8 +107,6 @@
         <option value="$PROJECT_DIR$/Controller/Conexao.php" />
         <option value="$PROJECT_DIR$/Controller/ControladorAluno.php" />
         <option value="$PROJECT_DIR$/Controller/ControladorEscola.php" />
-        <option value="$PROJECT_DIR$/Controller/ControladorRegional.php" />
-        <option value="$PROJECT_DIR$/Controller/ControladorUsuario.php" />
         <option value="$PROJECT_DIR$/Controller/ControleEdicao.php" />
         <option value="$PROJECT_DIR$/Controller/ControleFormAluno.php" />
         <option value="$PROJECT_DIR$/Controller/ControleFormEscola.php" />
@@ -92,9 +117,7 @@
         <option value="$PROJECT_DIR$/admin/template.php" />
         <option value="$PROJECT_DIR$/styles/main.css" />
         <option value="$PROJECT_DIR$/CSS/style.css" />
-        <option value="$PROJECT_DIR$/Model/UsuarioDAO.php" />
         <option value="$PROJECT_DIR$/coord/cadastro-turma.php" />
-        <option value="$PROJECT_DIR$/admin/regional.php" />
         <option value="$PROJECT_DIR$/Model/TurmaDAO.php" />
         <option value="$PROJECT_DIR$/Controller/ControladorTurma.php" />
         <option value="$PROJECT_DIR$/coord/cadastro-aluno.php" />
@@ -117,6 +140,11 @@
         <option value="$PROJECT_DIR$/coord/pesquisar_alunos.php" />
         <option value="$PROJECT_DIR$/coord/index.php" />
         <option value="$PROJECT_DIR$/coord/escola.php" />
+        <option value="$PROJECT_DIR$/Controller/ControladorRegional.php" />
+        <option value="$PROJECT_DIR$/admin/editar-regional.php" />
+        <option value="$PROJECT_DIR$/Controller/ControladorUsuario.php" />
+        <option value="$PROJECT_DIR$/Model/UsuarioDAO.php" />
+        <option value="$PROJECT_DIR$/admin/regional.php" />
       </list>
     </option>
   </component>
@@ -162,7 +190,66 @@
     <panes>
       <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SME-master" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -251,18 +338,18 @@
       <workItem from="1460030819044" duration="7053000" />
       <workItem from="1460113710271" duration="8557000" />
       <workItem from="1460375238126" duration="6555000" />
-      <workItem from="1460459223232" duration="6070000" />
+      <workItem from="1460459223232" duration="12809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117460000" />
+    <option name="totallyTimeSpent" value="124199000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="7" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16794479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16794479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -280,25 +367,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16794479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -318,27 +386,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/PostDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/RegionalDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/Conexao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/Connection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -360,13 +407,6 @@
             <element signature="n#buscarEscolaPorRegional#0;n#ControladorEscola#0;n#!!top" expanded="false" />
             <element signature="n#buscarEscolas#0;n#ControladorEscola#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ControladorUsuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -427,13 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/UsuarioDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="113" column="2" selection-start-line="113" selection-start-column="2" selection-end-line="113" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/ControleLogin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -452,30 +485,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="160" column="38" selection-start-line="160" selection-start-column="38" selection-end-line="160" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/regional.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="205" column="22" selection-start-line="205" selection-start-column="22" selection-end-line="205" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ControladorRegional.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding>
-            <element signature="n#__construct#0;n#ControladorRegional#0;n#!!top" expanded="false" />
-            <element signature="n#getInstance#0;n#ControladorRegional#0;n#!!top" expanded="false" />
-            <element signature="n#cadastrarRegional#0;n#ControladorRegional#0;n#!!top" expanded="false" />
-            <element signature="n#getRegional#0;n#ControladorRegional#0;n#!!top" expanded="false" />
-            <element signature="n#removerRegional#0;n#ControladorRegional#0;n#!!top" expanded="false" />
-            <element signature="n#editar#0;n#ControladorRegional#0;n#!!top" expanded="false" />
-            <element signature="n#buscarTodasRegionais#0;n#ControladorRegional#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -705,14 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coord/pesquisar_alunos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coord/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -723,8 +724,93 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/coord/escola.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="93" selection-start-line="64" selection-start-column="93" selection-end-line="64" selection-end-column="93" />
+        <state relative-caret-position="119">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/RegionalDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+          <folding>
+            <marker date="1459946419445" expanded="true" signature="322:344" placeholder="select * fro... regional" />
+            <marker date="1459946419445" expanded="true" signature="774:816" placeholder="select *from... regional" />
+            <marker date="1459946419445" expanded="true" signature="1262:1299" placeholder="insert into regional... " />
+            <marker date="1459946419445" expanded="true" signature="1480:1521" placeholder="delete from " />
+            <marker date="1459946419445" expanded="true" signature="1731:1779" placeholder="update regio... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/ControladorRegional.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="n#__construct#0;n#ControladorRegional#0;n#!!top" expanded="false" />
+            <element signature="n#getInstance#0;n#ControladorRegional#0;n#!!top" expanded="false" />
+            <element signature="n#cadastrarRegional#0;n#ControladorRegional#0;n#!!top" expanded="false" />
+            <element signature="n#getRegional#0;n#ControladorRegional#0;n#!!top" expanded="false" />
+            <element signature="n#removerRegional#0;n#ControladorRegional#0;n#!!top" expanded="false" />
+            <element signature="n#editar#0;n#ControladorRegional#0;n#!!top" expanded="false" />
+            <element signature="n#buscarTodasRegionais#0;n#ControladorRegional#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coord/pesquisar_alunos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/editar-coord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/UsuarioDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+          <folding>
+            <marker date="1460471934709" expanded="true" signature="324:383" placeholder="insert into usuario... " />
+            <marker date="1460471934709" expanded="true" signature="942:974" placeholder="delete from " />
+            <marker date="1460471934709" expanded="true" signature="1169:1236" placeholder="update usuar... " />
+            <marker date="1460471934709" expanded="true" signature="1548:1582" placeholder="select *from... usuario" />
+            <marker date="1460471934709" expanded="true" signature="1773:1794" placeholder="select * fro... usuario" />
+            <marker date="1460471934709" expanded="true" signature="2284:2303" placeholder="select * fro... admin" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/ControladorUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/regional.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>

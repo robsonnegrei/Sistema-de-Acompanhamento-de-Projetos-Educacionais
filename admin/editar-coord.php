@@ -1,21 +1,12 @@
 <?php 
-include_once '../Controller/ControladorEscola.php';
-include_once '../Controller/ControladorRegional.php';
-include_once '../Model/Regional.php';
+include_once '../Controller/ControladorUsuario.php';
 if(!isset($_SESSION)){
     session_start();
 }
-$idRegional = $_GET['id_regional'];
-$controleRegional = new ControladorRegional();
-$regionais = $controleRegional->buscarTodasRegionais();
-
-$regional = new Regional();
-foreach ($regionais as $valor) {
-	# code...
-	if($valor->idRegional == $idRegional){
-		$regional->idRegional = $valor->idRegional;
-		$regional->nome = $valor->nome;
-	}
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $controleUsuario = new ControladorUsuario();
+    $coord = $controleUsuario->buscarUsuario($id);
 }
 ?>
 <head>
@@ -155,20 +146,23 @@ foreach ($regionais as $valor) {
                                 
                                 <div id="tab-edit" class="tab-pane fade active in">
                                         
-                                        <form action="../Controller/ControladorRegional.php" method="post" class="form-horizontal"><h3>Editar Regional</h3>
+                                        <form action="../Controller/ControladorUsuario.php" method="post" class="form-horizontal"><h3>Editar Coordenador</h3>
 
                                             <div class="form-group"><label class="col-sm-3 control-label">Nome</label>
 
                                                 <div class="col-sm-9 controls">
                                                     <div class="row">
-                                                        <div class="col-xs-9"><input name="nome" value="<?php echo $regional->nome; ?>" class="form-control" type="nome"></div>
+                                                        <div class="col-xs-9"><input name="email" value="<?php echo $coord->email; ?>" class="form-control" type="text">
+                                                                              <input name="senha" value="<?php echo $coord->senha; ?>" class="form-control" type="text">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                                 
                                             <hr>
                                             <input type="hidden" name="acao" value="editar"/>
-                                            <input type="hidden" name="idRegional" value="<?php echo $idRegional; ?>"/>
+                                            <input type="hidden" name="id" value="<?php echo $coord->id; ?>"/>
+                                            <input type="hidden" name="idRegional" value="<?php echo $coord->idRegional; ?>"/>
                                             <button type="submit" class="btn btn-green btn-block">Salvar Alterações</button>
                                         </form>
                                     </div>

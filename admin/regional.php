@@ -12,7 +12,7 @@ if(isset($_GET['id_regional_selec'])) {
     $controladorRegional = new ControladorRegional();
     $controladorUsuario = new ControladorUsuario();
     $regionais = $controladorRegional->buscarTodasRegionais();
-    $coordenadores = $controladorUsuario->buscarAllUsuario();
+    $coordenadoresReg = $controladorUsuario->buscarAllUsuario();
 
 
 
@@ -20,7 +20,6 @@ $regional =  new Regional();
 if(isset($id_regional)){
     foreach ($regionais as $valor) {
         if(strcmp($valor->idRegional,$id_regional)){
-        
             $regional->idRegional = $id_regional;
             $regional->nome = $valor->nome;
         }
@@ -29,11 +28,11 @@ if(isset($id_regional)){
 
 $controladorEscola = new ControladorEscola();
 $escolas = $controladorEscola->buscarEscolaPorRegional($regional->idRegional);
+$coordenadores = array();
 
-
-foreach ($coordenadores as $coord){
-    if( !strcmp($coord->idRegional,  $regional->idRegional )){
-        unset($coordenadores[$coord]);
+foreach ($coordenadoresReg as $coord){
+    if( strcmp($coord->idRegional,  $regional->idRegional )){
+        array_push($coordenadores, $coord);
     }
 }
 ?>
@@ -179,8 +178,8 @@ foreach ($coordenadores as $coord){
                             <?php foreach ($coordenadores as $cdd) { ?>
                                 <tr>
                                     <td><?php echo $cdd->email; ?></td>
-                                    <td><button  onclick="window.location.href='#' class="btn btn-primary">Editar</button></td>
-                                    <td><button  onclick="window.location.href='#' class="btn btn-warning">Excluir</button></td>
+                                    <td><button  onclick="window.location.href='editar-coord.php?id=<?php echo $cdd->id; ?>'" class="btn btn-warning">Editar</button></td>
+                                    <td><button  onclick="window.location.href='../Controller/ControladorUsuario.php?acao=excluir&id=<?php echo $cdd->id;?>'" class="btn btn-danger">Excluir</button></td>
                                 </tr>  <?php
                             } ?>
                             </tbody>
@@ -190,13 +189,7 @@ foreach ($coordenadores as $coord){
                         echo "<h3>Nenhum Coordenador</h3>";
                     }
                     ?>
-                    <button onclick="window.location.href='cadastro-usuario.php?idRegional=<?php echo $regional->idRegional;?>'" class="btn btn-danger">Cadastrar Coordenador</button>
-                    <button onclick="window.location.href='editar-regional.php?id_regional=<?php echo $regional->idRegional; ?>'" class="btn btn-warning">Editar</button>
-                    <button onclick="window.location.href='../Controller/ControladorRegional.php?acao=excluir&idRegional=<?php echo $regional->idRegional;?>'" class="btn btn-primary">Excluir</button>
-                    
-                    
-                    
-
+                    <button onclick="window.location.href='cadastro-usuario.php?idRegional=<?php echo $regional->idRegional;?>'" class="btn btn-primary">Cadastrar Coordenador</button>
                     <?php 
 
                         if(count($escolas) > 0){
@@ -218,8 +211,6 @@ foreach ($coordenadores as $coord){
                         ?>
                           <tr>
                             <td><?php echo $escola->nome; ?></td>
-                            <td><button  onclick="window.location.href='editar-escola.php?idEscola=<?php echo $escola->idEscola;?>'" class="btn btn-primary">Editar</button></td>
-                            <td><button  onclick="window.location.href='../Controller/ControladorEscola.php?idEscola=<?php echo $escola->idEscola;?>&idRegional=<?php echo $id_regional;?>'" class="btn btn-warning">Excluir</button></td>
                           </tr>
                         <?php 
                         }

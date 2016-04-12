@@ -47,18 +47,18 @@ class UsuarioDAO{
 	public function editarUsuaio(Usuario $usuario){
 			$sql = "update usuario set email = ?, senha = ?, idRegional = ? where id= ?";
 			$a = $this->conexao->prepare($sql);
-			$a->bindParam(1,$usuario->getEmail());
-			$a->bindParam(2,$usuario->getSenha());
-			$a->bindParam(3,$usuario->getIdRegional());
-            $a->bindParam(4,$usuario->getId());
+			$a->bindParam(1,$usuario->email);
+			$a->bindParam(2,$usuario->senha);
+			$a->bindParam(3,$usuario->idRegional);
+            $a->bindParam(4,$usuario->id);
 			if(!$a->execute())
 				return -1;
 			return 1;
 	}
 	public function getUsuario(Usuario $usuario){
-			$sql = "select *from usuario where id = ?";
+			$sql = "select * from usuario where id = ?";
 			$a = $this->conexao->prepare($sql);
-			$a->bindParam(1,$usuario->getId());
+			$a->bindParam(1,$usuario->id);
 			if(!$a->execute())
 				return -1;
 			return $a->fetchObject();
