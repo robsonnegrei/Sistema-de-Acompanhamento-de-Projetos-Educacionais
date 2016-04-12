@@ -1,6 +1,5 @@
 <?php  
 include_once '../0.12-rc19/src/Cezpdf.php';
-
 include_once '../Controller/ControladorPeriodo.php';
 include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorAluno.php';
@@ -19,7 +18,6 @@ $idRegional = $_GET['id_regional'];
 $regional = $cRegional->getRegional($idRegional);
 
 $escolasRegional = $c1->buscarEscolaPorRegional($idRegional);
-
 
 $nivelPrimeiroPeriodo;
 $nivelSegundoPeriodo;

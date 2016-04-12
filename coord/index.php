@@ -10,8 +10,6 @@ if(!isset($_SESSION)){
 
 if(isset($_GET['regional']))
     $idRegional = $_GET['regional'];
-    $_SESSION['id_regional']= $_GET['regional'];
-
     $controladorTurma = new ControladorTurma();
     $controladorAluno = new ControladorAluno();
     $controladorEscola = new ControladorEscola();
@@ -79,6 +77,8 @@ if(isset($idRegional)){
             <div class="navbar-header">
                 <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 <a id="logo" href="#" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">SAPE</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
+
+
             <div class="topbar-main">
                 
                 
@@ -148,10 +148,10 @@ if(isset($idRegional)){
                             <div class="icon-bg bg-orange"></div>
                         </i><span class="menu-title">Post</span></a></li>
                         <?php if(isset($_SESSION['id_regional'])) {?>
-                            <li class="none"><a href="relatorio_regional.php?id_regional=<?php echo $_SESSION['id_regional'];?>"><i class="glyphicon glyphicon-eye-open">
+                            <li class="none"><a href="relatorio_regional.php?id_regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"><i class="glyphicon glyphicon-eye-open">
                                         <div class="icon-bg bg-orange"></div>
                                     </i><span class="menu-title">Gerar Relatório</span></a></li>
-                        <li class="none"><a href="gerar_pdf.php?id_regional=<?php echo $_SESSION['id_regional'];?>"><i class="glyphicon glyphicon-book">
+                        <li class="none"><a href="gerar_pdf.php?id_regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"><i class="glyphicon glyphicon-book">
                             <div class="icon-bg bg-orange"></div>
                         </i><span class="menu-title">Gerar PDF</span></a></li>
                         <?php } ?>
@@ -202,7 +202,7 @@ if(isset($idRegional)){
                                 for ($i = 0; $i < count($escolas); $i++) {
                                     // foreach ($escolas as $escola) {
                                     ?>
-                                    <a href="escola.php?idEscola=<?php echo $escolas[$i]->idEscola; ?>"
+                                    <a href="escola.php?idEscola=<?php echo $escolas[$i]->idEscola; ?> &idRegional=<?php echo $idRegional; ?>"
                                        class="list-group-item"><?php echo $escolas[$i]->nome . "  </br>Quantidade de alunos " . $quatidadeAlunos[$i]; ?></a>
 
                                     <?php

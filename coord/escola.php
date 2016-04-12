@@ -7,8 +7,9 @@ include_once '../Controller/ControladorTurma.php';
 if(!isset($_SESSION)){
     session_start();
 }
-if(isset($_GET['idEscola'])) {
+if(isset($_GET['idEscola']) && isset($_GET['idRegional'])) {
     $idEscola = $_GET['idEscola'];
+    $idRegional = $_GET['idRegional'];
     $controladorAluno = new ControladorAluno();
     $controladorEscola = new ControladorEscola();
     $controladorTurma = new ControladorTurma();
@@ -19,7 +20,7 @@ if(isset($_GET['idEscola'])) {
 $nome_usuario = $_SESSION['email_login'];
 ?>
 <head>
-    <title>Sare - Administrador</title>
+    <title>Sare</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +58,22 @@ $nome_usuario = $_SESSION['email_login'];
             <div class="navbar-header">
                 <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 <a id="logo" href="index.php" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">SAPE</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
-            <div class="topbar-main">
+                
+                <form action="../coord/pesquisar_alunos.php" method="post" class="navbar-form navbar-left" role="search">
+                    <?php if(!isset($idRegional)|| !isset($idEscola)){?>
+                    <div class="form-group">
+                        <input type="hidden" name="idRegional" value="<?php echo $idRegional;?>" />
+                        <input type="hidden" name="idEscola" value="<?php echo $idEscola;?>" />
+                        <input type="hidden" name="acao" value="pesquisar"/>
+                        <input type="text" name="nomePesquisa" class="form-control" placeholder="Buscar"/>
+                    </div>
+
+                        <button type="submit" class="pesquisa btn btn-blue">Pesquisar</button>
+                    <?php }?>
+                </form>
+
+
+                <div class="topbar-main">
                 
                 
                 

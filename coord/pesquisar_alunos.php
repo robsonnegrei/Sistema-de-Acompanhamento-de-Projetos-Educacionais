@@ -3,34 +3,23 @@ include_once '../Model/Regional.php';
 include_once '../Controller/ControladorRegional.php';
 include_once '../Controller/ControladorAluno.php';
 
-
-
-
 $controladorRegional = new ControladorRegional();
-
-
 
 if(isset($_POST['nomePesquisa'])){
     $nomePesquisa = $_POST['nomePesquisa'];
     $nomePesquisa = '%'.$nomePesquisa.'%';
     $idRegional = $_POST['idRegional'];
+    $idEscola = $_POST['idEscola'];
     $c = new ControladorAluno();
     $nomes =  $c->pesquisarAluno($nomePesquisa);
-    //var_dump($nomes);
+
 }else{
     $idRegional = $_GET['id_regional'];
     $nomes;
 }
-
-
-
-
 ?>
-
-
-
 <head>
-    <title>Sape - Visitante</title>
+    <title>Sape</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,7 +66,7 @@ if(isset($_POST['nomePesquisa'])){
                 <ul class="nav navbar navbar-top-links navbar-right mbn">
 
                     
-                     <span class="hidden-xs"><?php echo "Visitante"; ?></span><span></span></a>
+                     <span class="hidden-xs"></span><span></span></a>
                     
                     <li class="dropdown topbar-user"><a data-hover="dropdown" href="../Controller/ControleLogin.php?acao=sair" class="dropdown-toggle"><span class="hidden-xs">Sair</span></a>
                         <ul class="dropdown-menu dropdown-user pull-right">
@@ -87,7 +76,7 @@ if(isset($_POST['nomePesquisa'])){
                             <li><a href="#"><i class="fa fa-tasks"></i>My Tasks<span class="badge badge-success">7</span></a></li>
                             <li class="divider"></li>
                             <li><a href="#"><i class="fa fa-lock"></i>Lock Screen</a></li>
-                            <li><a href="Login.html"><i class="fa fa-key"></i>Log Out</a></li>
+                            <li><a href="#"><i class="fa fa-key"></i>Log Out</a></li>
                             
                         </ul>
                     </li>
@@ -136,15 +125,9 @@ if(isset($_POST['nomePesquisa'])){
                 <ul id="side-menu" class="nav">
                     
                      <div class="clearfix"></div>
-                    <li class="none"><a href="regional_visitante.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
+                    <li class="none"><a href="escola.php?idEscola=<?php echo $idRegional;?>&idRegional=<?php echo $idRegional?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="active"><a href="pesquisar_alunos.php?id_regional?<?php echo $idRegional;?>"><i class="glyphicon glyphicon-search">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Pesquisar</span></a></li>
-                      <li class="none"><a href="relatorio_regional.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Gerar Relatorio</span></a></li>
      
                     
                 </ul>
@@ -170,14 +153,14 @@ if(isset($_POST['nomePesquisa'])){
                 <!--END TITLE & BREADCRUMB PAGE-->
                 <!--BEGIN CONTENT-->
                 <div class="page-content">
-
+                    <!--
 
                     <div class="col-lg-12">
                         <div class="list-group">
                             <a class="list-group-item active">Pesquisar</a>
                              <div id="generalTabContent" class="tab-content">
                                     
-                                    <!-- SEGUNDA TAB-->
+                                    <!-- SEGUNDA TAB
                                 
                                 <div id="tab-edit" class="tab-pane fade active in">
                                         
@@ -188,7 +171,7 @@ if(isset($_POST['nomePesquisa'])){
                                             <div class="col-xs-10 controls">
                                                 <div class="row">
                                                     <div class="col-xs-10">
-                                                        <!-- <input name="nome" class="form-control" type="textarea"> -->
+                                                        <!-- <input name="nome" class="form-control" type="textarea">
                                                         <input rows="3" class="form-control" name="nomePesquisa"/>
 
                                                         <div class="row">
@@ -198,7 +181,7 @@ if(isset($_POST['nomePesquisa'])){
                                                                 </a>
                                                             </div>
                                                             <div class="col-xs-4">
-                                                                <input type="hidden" name="idRegional" value="<?php echo $idRegional; ?>" />
+                                                                <input type="hidden" name="idRegional" value="<?php //echo $idRegional; ?>" />
                                                                 <input type="hidden" name="acao" value="pesquisar"/>
                                                             </div>
                                                         </div>
@@ -221,44 +204,27 @@ if(isset($_POST['nomePesquisa'])){
                         </div>
                     </div>            
 
-                    
+                    -->
                     <div class="col-lg-12">
                         <div class="list-group">
                             <a class="list-group-item active">Alunos</a>
-
-                            
-
-
-
-
                             <?php 
                                 if(isset($nomes) && count($nomes)>0){
                                       ?>
-
-                                    
                                     <?php
-
                                             foreach ($nomes as $aluno) {
                                         ?>
                                             <tr>
-                                                <td> <a href="aluno.php?id_regional=<?php echo $idRegional;?> & idAluno=<?php echo $aluno->idAluno;?>" class="list-group-item"><?php echo $aluno->nome_aluno;?></a></td>
-                                            
+                                                <td> <a href="=<?php echo $idRegional;?> & idAluno=<?php echo $aluno->idAluno;?>" class="list-group-item"><?php echo $aluno->nome_aluno;?></a></td>
                                             </tr>
-                                    
                                         <?php 
                                             }
                                         }else{
                                             echo "<a class='list-group-item'><h3>Nenhum Resultado Encontrado</h3></a>";
                                         }
-                                        ?>    
-
-          
+                                        ?>
                         </div>
                     </div>
-
-
-    
-
                 </div>
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->
