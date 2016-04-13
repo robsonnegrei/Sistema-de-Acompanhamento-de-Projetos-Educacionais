@@ -3,7 +3,6 @@ include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorAluno.php';
 include_once '../Model/Turma.php';
 include_once '../Controller/ControladorTurma.php';
-
 if(!isset($_SESSION)){
     session_start();
 }

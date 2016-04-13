@@ -116,15 +116,11 @@ include_once '../Controller/ControladorRegional.php';
             <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2" data-intro="Template has <b>many navigation styles</b>" data-position="right" class="navbar-default navbar-static-side">
             <div class="sidebar-collapse menu-scroll">
                 <ul id="side-menu" class="nav">
-                    
-                     <div class="clearfix"></div>
-                    <li class="active">
-                        <a href="index.php">
-                        <i class="glyphicon glyphicon-search"/>
-                            <div class="icon-bg bg-orange"/>
-                        </i>
-                        <span class="menu-title">Regionais</span></a>
-                    </li>
+
+                    <div class="clearfix"></div>
+                    <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Regionais</span></a></li>
                     
                 </ul>
             </div>
@@ -138,11 +134,9 @@ include_once '../Controller/ControladorRegional.php';
                         <div class="page-title">
                             Visão Geral - Administrador</div>
                     </div>
-                    <ol class="breadcrumb page-breadcrumb pull-right">
-                        
-                        
+                    <ul class="breadcrumb page-breadcrumb pull-right">
                         <li class="active">Regionais</li>
-                    </ol>
+                    </ul>
                     <div class="clearfix">
                     </div>
                 </div>

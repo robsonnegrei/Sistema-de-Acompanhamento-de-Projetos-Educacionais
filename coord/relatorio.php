@@ -157,7 +157,7 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
       <p class="media-heading">Secretaria Municipal da Educa&ccedil;&atilde;o de Quixad&aacute;</p>
       <div class="media-body">
           <h4 class="media-heading">Sistema de Acompanhamento Online de Projetos Educacionais</h4>
-          <h3>Relat&oacute;rio Escola <?php echo $idEscola->nome?></h3>
+          <h3>Relat&oacute;rio Escola <?php echo $escola->nome?></h3>
       </div>
       <div class="clearfix"></div>
       <div id="columnchart_material" style="width: 1250px; height: 500px; margin: 50px; padding: 10px; border: groove;"></div>
