@@ -203,98 +203,6 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
                 </a>
             </div>
         </div>
-        
-        <?php 
-
-        if(count($alunos) > 0){
-        ?>
-        <div class="ibox-content">
-            
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-
-                        <th>#</th>
-                        <th>Aluno </th>
-                        <th>Diagn&oacute;stico Inicial</th>
-                        <th>Per&iacute;odo 1</th>
-                        <th>Per&iacute;odo 2</th>
-                        <th>Per&iacute;odo 3</th>
-                        <th>Per&iacute;odo 4</th>
-                        
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php 
-
-                    $periodo = 0;
-                    foreach ($alunos as $aluno) {
-                    ?>
-                      <tr>
-                      <td>*</td>
-                      <td><?php echo $aluno->nome;?></td>
-                    <?php
-                      while($periodo < 5){
-                        
-                        $lista_alunos_periodo = $c->getDadosAlunoPorPeriodo($periodo);
-                        $flag = FALSE;
-
-                        foreach ($lista_alunos_periodo as $lista) {
-                            # code...
-                            if($aluno->idAluno == $lista->idAluno){
-                              switch ($lista->nivel) {
-                                case 1:
-                                  echo "<td>Pr&eacute;-sil&aacute;bico</td>";
-                                  break;
-                                case 2:
-                                  echo "<td>Sil&aacute;bico</td>";
-                                  break;
-                                case 3:
-                                  echo "<td>Sil&aacute;bico-Alfab&eacute;tico</td>";
-                                  break;
-                                case 4:
-                                  echo "<td>Alfab&eacute;tico</td>";
-                                  break;
-                                case 5:
-                                  echo "<td>Ortogr&aacute;fico</td>";
-                                  break;
-                                default:
-                                  # code...
-                                  break;
-                              }
-                            ?>
-                            <?php
-                              $flag = TRUE;
-                            }
-                          }
-                        if(!$flag){
-                          echo "<td>-</td>";
-                          $flag = FALSE;
-                        }
-                        $periodo = $periodo + 1;
-                      }
-
-                      echo "</tr>";
-                      $periodo = 0;
-                    }
-
-                    ?>
-                    
-                    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <?php 
-        }
-        ?>
-        </div>
-        </div>
-
-        </div>
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {'packages':['bar']});
@@ -314,12 +222,9 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
                     title: 'Grafico por Bimestre',
                 }
             };
-
             var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
             chart.draw(data, options);
         }
     </script>
-        
   </body>
 </html>

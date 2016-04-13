@@ -1,18 +1,18 @@
-<?php  
+<?php
 include_once '../0.12-rc19/src/Cezpdf.php';
 include_once '../Controller/ControladorPeriodo.php';
 include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorAluno.php';
 include_once '../Controller/ControladorRegional.php';
 
+
 $c = new ControladorPeriodo();
 $c1 = new ControladorEscola();
 $c2 = new ControladorAluno();
 $cRegional = new ControladorRegional();
 
-$pdf = new CezPDF("a4");
-
-$pdf->selectFont('Helvetica');
+$pdf = new CezPDF('4A0');
+$pdf->selectFont('./fonts/Helvetica.afm');
 
 $idRegional = $_GET['id_regional'];
 $regional = $cRegional->getRegional($idRegional);
@@ -87,8 +87,8 @@ if(count($escolasRegional) > 0){
 				$periodo = 1;
 			}
 			
-			$pdf->ezText("<b>Regional ".$regional->nome."</b>", 20);
-			$pdf->ezText("\n \n");
+			$pdf->ezText('<b>Regional '.$regional->nome .'</b>', 20);
+			$pdf->ezText('\n \n');
 			$cols = array('aluno'=>'Nome', 'periodo1'=>'Periodo 1','periodo2'=>'Periodo 2','periodo3'=>'Periodo 3','periodo4'=>'Periodo 4');
 
 			$pdf->ezTable($data, $cols);
@@ -103,7 +103,7 @@ if(count($escolasRegional) > 0){
 
 }else{
 	$pdf->ezText("<b>Não há alunos cadastrados ou avaliados na regional ".$regional->nome, 20);
-	if (isset($_GET['d']) && $_GET['d']){
+	if (isset($_GET['d']) && $_GET['d'	]){
 		echo $pdf->ezOutput(TRUE);
 	}else {
 		$pdf->ezStream();

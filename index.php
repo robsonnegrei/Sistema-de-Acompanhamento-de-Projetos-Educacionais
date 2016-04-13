@@ -36,7 +36,6 @@
     <![endif]-->
 </head>
 <body>
-	<a href="admin/template.php">Pagina</a>
 	<section class="container login-form">
 		<section>
 			<form method="post" action="Controller/ControleLogin.php" role="login">

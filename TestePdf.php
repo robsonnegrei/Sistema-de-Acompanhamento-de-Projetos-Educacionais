@@ -2,7 +2,7 @@
 
 include_once '0.12-rc19/src/Cezpdf.php';
 
-$pdf = new CezPDF("a4");
+$pdf = new ezPDF("a4");
 
 $pdf->selectFont('Helvetica');
 
