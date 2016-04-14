@@ -8,16 +8,21 @@ if(isset($_POST['acao'])){
         $mensagem = $_POST['mensagem'];
         $idRegional = $_POST['idRegional'];
         $c = new ControlePost();
-        if($c->cadastrarPost($mensagem, $idRegional) == -1)
-            header('location:../coord/indexPost.php');
+        if($c->cadastrarPost($mensagem, $idRegional) == -1) {
+            // mostrar erro
+        }
+        header('location:../coord/indexPost.php?id_regional='.$idRegional);
     }
 }else if(isset($_GET["acao"])){
     $acao = $_GET['acao'];
     if($acao == "excluir"){
         $idPost = $_GET['idPost'];
+        $idRegional = $_GET['idRegional'];
         $cp = new ControlePost();
-        if($cp->removerPost($idPost) == -1)
-            header('location:../coord/indexPost.php');
+        if($cp->removerPost($idPost) == -1){
+            //mostrar erro
+        }
+        header('location:../coord/indexPost.php?id_regional='.$idRegional);
     }
 }
 class ControlePost{

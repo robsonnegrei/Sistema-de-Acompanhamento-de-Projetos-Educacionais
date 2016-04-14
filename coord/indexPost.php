@@ -8,7 +8,7 @@ if(!isset($_SESSION)){
 }
 
 $nome_usuario = $_SESSION['email_login'];
-$idRegional = $_SESSION['id_regional'];
+$idRegional = $_GET['id_regional'];
 
 $controlePost = new ControlePost();
 
@@ -130,10 +130,10 @@ $arrayPosts = $controlePost->pegarPostRegional($idRegional);
                 <ul id="side-menu" class="nav">
                     
                      <div class="clearfix"></div>
-                    <li class="none"><a href="index.php"><i class="glyphicon glyphicon-book">
+                    <li class="none"><a href="index.php?regional=<?php echo $idRegional?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="active"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
+                    <li class="active"><a href="indexPost.php?id_regional=<?php echo $idRegional; ?>"><i class="glyphicon glyphicon-pencil">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Post</span></a></li>
      
@@ -148,7 +148,7 @@ $arrayPosts = $controlePost->pegarPostRegional($idRegional);
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Coordenador - <?php echo $_SESSION['nome_regional']; ?></div>
+                            Coordenador </div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         
@@ -256,7 +256,7 @@ $arrayPosts = $controlePost->pegarPostRegional($idRegional);
                                                 <p><?php echo $post->mensagem; ?></p>   
                                             </div>
                                             <div class="col-xs-1">
-                                            <button onclick="window.location.href='../Controller/ControlePost.php?acao=excluir&idPost=<?php echo $post->idPost;?>'" type="button" class="btn btn-danger">X</button>
+                                            <button onclick="window.location.href='../Controller/ControlePost.php?acao=excluir&idPost=<?php echo $post->idPost;?>&idRegional=<?php echo $idRegional; ?>'" type="button" class="btn btn-danger">X</button>
                                                 
                                             </div>
                                         </div>
