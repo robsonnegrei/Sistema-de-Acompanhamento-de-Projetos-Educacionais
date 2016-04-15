@@ -5,9 +5,10 @@ if(!isset($_SESSION)){
     session_start();
 }
 
-if(isset($_GET['idTurma'])&& isset($_GET['idEscola'])){
+if(isset($_GET['idTurma'])&& isset($_GET['idEscola']) && isset($_GET['idRegional'])){
     $idTurma = $_GET['idTurma'];
     $idEscola = $_GET['idEscola'];
+    $idRegional = $_GET['idRegional'];
 }
 if(isset($idTurma) && isset($idEscola)) {
     $controladorAluno = new ControladorAluno();
@@ -177,8 +178,9 @@ if(isset($idTurma) && isset($idEscola)) {
                                             </div>
                                             <hr>
                                             <input type="hidden" name="acao" value="cadastrar"/>
-                                            <input type="hidden" name="idTurma" value="<?php echo $turma->idTurma;?>"/>
-                                            <input type="hidden" name="idEscola" value="<?php echo $turma->idEscola;?>">
+                                            <input type="hidden" name="idTurma" value="<?php echo $idTurma?>"/>
+                                            <input type="hidden" name="idEscola" value="<?php echo $idEscola;?>">
+                                            <input type="hidden" name="idRegional" value="<?php echo $idRegional;?>">
                                             <button type="submit" class="btn btn-green btn-block">Cadastrar</button>
                                         </form>
                                     </div>

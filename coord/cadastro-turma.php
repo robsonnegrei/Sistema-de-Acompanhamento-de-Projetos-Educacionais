@@ -4,12 +4,11 @@ if(!isset($_SESSION)){
     session_start();
 }
 
-$idEscola = $_GET['idEscola'];
-
+if(isset($_GET['idRegional'], $_GET['idEscola'])) {
+    $idEscola = $_GET['idEscola'];
+    $idRegional = $_GET['idRegional'];
+}
 ?>
-
-
-
 <head>
     <title>Sare - Coordenador</title>
     <meta charset="utf-8">
@@ -50,9 +49,6 @@ $idEscola = $_GET['idEscola'];
                 <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">SAPE</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
             <div class="topbar-main">
-                
-                
-                
                 <ul class="nav navbar navbar-top-links navbar-right mbn">
                     
                     <span class="hidden-xs"><?php echo $_SESSION['email_login']; ?></span><span></span></a>
@@ -113,12 +109,9 @@ $idEscola = $_GET['idEscola'];
                 <ul id="side-menu" class="nav">
                     
                      <div class="clearfix"></div>
-                    <li class="active"><a href="index.html"><i class="glyphicon glyphicon-book">
+                    <li class="active"><a href="index.html?regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Post</span></a></li>
      
                      
                 </ul>
@@ -149,16 +142,17 @@ $idEscola = $_GET['idEscola'];
                             <div class="form-group"><label class="col-sm-3 control-label">Nome</label>
                                 <div class="col-sm-9 controls">
                                     <div class="row">
-                                        <div class="col-xs-9"><input name="nome" class="form-control" type="text"></div>
+                                        <div class="col-xs-9">
+                                            <input name="nome" class="form-control" type="text"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <hr>
                             <input type="hidden" name="acao" value="cadastrar"/>
                             <input type="hidden" name="idEscola" value="<?php echo $idEscola;?>"/>
-                            <?php if(isset($idEscola)){?>
-                                <button type="submit" class="btn btn-green btn-block">Cadastrar</button>
-                            <?php } ?>
+                            <input type="hidden" name="idRegional" value="<?php echo $idRegional;?>"/>
+                            <button type="submit" class="btn btn-green btn-block">Cadastrar</button>
                         </form>
                     </div>
                 </div>

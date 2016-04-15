@@ -7,33 +7,35 @@ include_once '../Controller/ControladorAluno.php';
 if(!isset($_SESSION)){
     session_start();
 }
-if(isset($_GET['regional']))
+if(isset($_GET['regional'])){
     $idRegional = $_GET['regional'];
     $controladorTurma = new ControladorTurma();
     $controladorAluno = new ControladorAluno();
     $controladorEscola = new ControladorEscola();
-$nome_usuario = $_SESSION['email_login'];
-if(isset($idRegional)){
-    $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
-    $quatidadeAlunos = array();
-    $qtd = 0;
-    if (isset($escolas)) {
-        foreach ($escolas as $escola) {
-            $turmas = $controladorTurma->buscarTurmasEscola($escola->idEscola);
-            if (isset($turmas)) {
-                foreach ($turmas as $turma) {
-                    $alunos = $controladorAluno->buscarAlunosPorTurma($turma->idTurma);
-                    $qtd = $qtd + count($alunos);
+
+    $nome_usuario = $_SESSION['email_login'];
+    if (isset($idRegional)) {
+        $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
+        $quatidadeAlunos = array();
+        $qtd = 0;
+        if (isset($escolas)) {
+            foreach ($escolas as $escola) {
+                $turmas = $controladorTurma->buscarTurmasEscola($escola->idEscola);
+                if (isset($turmas)) {
+                    foreach ($turmas as $turma) {
+                        $alunos = $controladorAluno->buscarAlunosPorTurma($turma->idTurma);
+                        $qtd = $qtd + count($alunos);
+                    }
+                    array_push($quatidadeAlunos, $qtd);
+                    $qtd = 0;
                 }
-                array_push($quatidadeAlunos, $qtd);
-                $qtd = 0;
             }
         }
     }
 }
 ?>
 <head>
-    <title>Sare - Coordenador</title>
+    <title>Sape</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +46,6 @@ if(isset($idRegional)){
     <!--Loading bootstrap css-->
     <link type="text/css" rel="stylesheet" href="../styles/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../styles/main.css">
-    <style type="text/css" id="holderjs-style"></style>
 </head>
 <body class="pace-done">
     <div class="pace  pace-inactive">
@@ -96,10 +97,10 @@ if(isset($idRegional)){
                 <div class="sidebar-collapse menu-scroll">
                     <ul id="side-menu" class="nav">
                          <div class="clearfix"></div>
-                         <li class="active"><a href="#"><i class="glyphicon glyphicon-book">
+                         <li class="active"><a href="index.php?regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"> <i class="glyphicon glyphicon-book">
                             <div class="icon-bg bg-orange"></div>
                         </i><span class="menu-title">Escolas</span></a></li>
-                        <li class="none"><a href="indexPost.php?id_regional=<?php echo $idRegional;?>">
+                        <li class="none"><a href="indexPost.php?id_regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>">
                                 <i class="glyphicon glyphicon-pencil">
                                     <div class="icon-bg bg-orange"></div>
                                 </i><span class="menu-title">Post</span></a></li>
@@ -141,8 +142,8 @@ if(isset($idRegional)){
                                             ?>
                                             <a href="escola.php?idEscola=<?php echo $escolas[$i]->idEscola; ?> &idRegional=<?php echo $idRegional; ?>" class="list-group-item"><?php echo $escolas[$i]->nome . "  </br>Quantidade de alunos " .$quatidadeAlunos[$i]; ?></a>
                                     <?php
-                                }
-                                }else ?> <p> Não há Escolas</p> <?php ?>
+                                    }
+                                } ?>
                                 </div>
                             </div>
                         </div>

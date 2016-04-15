@@ -5,9 +5,10 @@ include_once '../Controller/ControladorTurma.php';
 if(!isset( $_SESSION))
     session_start();
 
-if(isset($_GET['idTurma'])&& isset($_GET['idEscola'])){
+if(isset($_GET['idTurma'])&& isset($_GET['idEscola']) && isset($_GET['idRegional'])){
     $idTurma = $_GET['idTurma'];
     $idEscola = $_GET['idEscola'];
+    $idRegional = $_GET['idRegional'];
 }
 if(isset($idTurma) && isset($idEscola)) {
     $controladorAluno = new ControladorAluno();
@@ -121,58 +122,44 @@ if(isset($idTurma) && isset($idEscola)) {
             <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2" data-intro="Template has <b>many navigation styles</b>" data-position="right" class="navbar-default navbar-static-side">
             <div class="sidebar-collapse menu-scroll">
                 <ul id="side-menu" class="nav">
-                    
-                     <div class="clearfix"></div>
-                    <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Post</span></a></li>
+
+                    <div class="clearfix"></div>
+                    <li class="active"><a href="index.php?regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"> <i class="glyphicon glyphicon-book">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Escolas</span></a></li>
                 </ul>
             </div>
         </nav>
-          
-          
-            <div id="page-wrapper">
-                <!--BEGIN TITLE & BREADCRUMB PAGE-->
-                <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
-                    <div class="page-header pull-left">
-                        <div class="page-title">
-                             Visão Geral </div>
-                    </div>
-                    <ol class="breadcrumb page-breadcrumb pull-right">
-                        
-                        
-                        <!-- <li class="active">Quantidade de Alunos - <?php echo $qtdAlunos; ?></li> -->
-                    </ol>
-                    <div class="clearfix">
-                    </div>
-                </div>
+        <div id="page-wrapper">
+             <!--BEGIN TITLE & BREADCRUMB PAGE-->
+             <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                 <div class="page-header pull-left">
+                      <div class="page-title">Visão Geral </div>
+                 </div>
+                 <ol class="breadcrumb page-breadcrumb pull-right">
+                     <!-- <li class="active">Quantidade de Alunos - <?php echo $qtdAlunos; ?></li> -->
+                 </ol>
+                 <div class="clearfix"></div>
+             </div>
                 <!--END TITLE & BREADCRUMB PAGE-->
                 <!--BEGIN CONTENT-->
-                <div class="page-content">
-
-    
-                        <div class="row mbl">
-                            
-                            <h1>Turma<?php if(isset($turma)) echo $turma->nome; ?> - Alunos</h1>
-                            <div class="col-lg-12">
-                                <div class="row">
-                                 <div class="col-lg-6">
-
-
+            <div class="page-content">
+                <div class="row mbl">
+                    <h1>Turma<?php if(isset($turma)) echo $turma->nome; ?> - Alunos</h1>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6">
                                      <table border="1" class="table table-striped">
                                          <thead>
-                                         <tr>
-                                             <th>Primeiro Nome</th>
-                                             <th></th>
+                                            <tr>
+                                                 <th>Primeiro Nome</th>
+                                                <th></th>
                                              <th></th>
                                          </tr>
                                          </thead>
                                          <tbody>
-    
-                                    <?php 
+
+                                    <?php
                                         if(!empty($alunos) && $qtdAlunos>0){
                                       ?>
                                     <?php
@@ -181,9 +168,9 @@ if(isset($idTurma) && isset($idEscola)) {
                                             <tr>
                                                 <td><?php echo $aluno->nome_aluno;?></td>
                                                 <td><button onclick="window.location.href='editar-aluno.php?idAluno=<?php echo $aluno->idAluno;?>&idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-success">Editar</button></td>
-                                                <td><button onclick="window.location.href='../Controller/ControladorAluno.php?acao=excluir&idAluno=<?php echo $aluno->idAluno;?>&idTurma=<?php echo $idTurma;?>&idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-danger">Excluir</button></td>
+                                                <td><button onclick="window.location.href='../Controller/ControladorAluno.php?acao=excluir&idAluno=<?php echo $aluno->idAluno;?>&idTurma=<?php echo $idTurma;?>&idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>'" type="button" class="btn btn-danger">Excluir</button></td>
                                             </tr>
-                                        <?php 
+                                        <?php
                                             }
                                         }else{
                                         	echo "<h3>Nenhum Aluno Cadastrado</h3>";
@@ -193,13 +180,13 @@ if(isset($idTurma) && isset($idEscola)) {
                                     </table>
                                 </div>
                                 </div>
-                                <?php if( isset($idTurma) && isset($idEscola)) {?>  <button onclick="window.location.href='cadastro-aluno.php?idTurma=<?php echo $idTurma;?> & idEscola=<?php echo $idEscola;?>
+                                <?php if( isset($idTurma) && isset($idEscola)){?>
+                                    <button onclick="window.location.href='cadastro-aluno.php?idTurma=<?php echo $idTurma;?> &idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>
                                     '" type="button" class="btn btn-primary">Adicionar Aluno</button> <?php
-                                }?> 
+                                }?>
                             </div>
-                            
                         </div>
-</div>
+                    </div>
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->
                 <div id="footer">

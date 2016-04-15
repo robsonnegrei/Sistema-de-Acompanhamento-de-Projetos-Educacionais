@@ -1,3 +1,17 @@
+<?php
+include_once '../Controller/ControladorEscola.php';
+include_once '../Controller/ControladorAluno.php';
+include_once '../Model/Turma.php';
+include_once '../Controller/ControladorTurma.php';
+if(!isset($_SESSION)){
+    session_start();
+}
+if(isset($_GET['idEscola']) && isset($_GET['idRegional'])) {
+    $idEscola = $_GET['idEscola'];
+    $idRegional = $_GET['idRegional'];
+}
+$nome_usuario = $_SESSION['email_login'];
+?>
 <head>
     <title>Sare - Administrador</title>
     <meta charset="utf-8">
@@ -100,15 +114,10 @@
             <div class="sidebar-collapse menu-scroll">
                 <ul id="side-menu" class="nav">
                     
-                     <div class="clearfix"></div>
-                    <li><a href="index.html"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Regionais</span></a></li>
-                    <li><a href="cadastro-regional.html"><i class="glyphicon glyphicon-plus-sign">
-                        <div class="icon-bg bg-pink"></div>
-                    </i><span class="menu-title">Cadastrar Regional</span></a>
-                       
-                    </li>
+                    <div class="clearfix"></div>
+                    <li class="active"><a href="index.php?regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"> <i class="glyphicon glyphicon-book">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Escolas</span></a></li>
                     
                 </ul>
             </div>
@@ -120,7 +129,7 @@
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Visão Geral - Administrador</div>
+                            Visão Geral</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         
@@ -179,23 +188,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            
-
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-
-                                            
-                                            
-                                            
-                                            
+          
                                             <hr>
                                             <button type="submit" class="btn btn-green btn-block">Cadastrar</button>
                                         </form>
@@ -203,10 +196,6 @@
 
                                 </div>
 
-
-                        
-    
-            
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->
                 <div id="footer">

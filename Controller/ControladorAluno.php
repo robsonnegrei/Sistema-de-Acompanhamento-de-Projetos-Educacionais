@@ -14,18 +14,24 @@ if(isset($_POST['acao'])){
         $nome = $_POST['nome'];
         $idTurma = $_POST['idTurma'];
         $idEscola = $_POST['idEscola'];
+        $idRegional = $_POST['idRegional'];
         $c = new ControladorAluno();
-        if($c->cadastrarAluno($nome, $idTurma) == -1)
-            header('location:../coord/turma.php?idTurma='.$idTurma.' & idEscola='.$idEscola);
+        if($c->cadastrarAluno($nome, $idTurma) == -1){
+            //mostrar erro
+        }
+         header('location:../coord/turma.php?idTurma='.$idTurma.' &idEscola='.$idEscola. '&idRegional='.$idRegional);
     }else if($acao == "editar"){
         $nome = $_POST['nome'];
         $idTurmaNova = $_POST['idTurmaNova'];
         $idTurma = $_POST['idTurma'];
         $idEscola = $_POST['idEscola'];
+        $idRegional = $_POST['idRegional'];
         $idAluno = $_POST['idAluno'];
         $c = new ControladorAluno();
-            if($c->editar($nome, $idTurmaNova, $idAluno) == -1)
-                 header('location:../coord/turma.php?idTurma=' . $idTurma . ' & idEscola=' . $idEscola);
+            if($c->editar($nome, $idTurmaNova, $idAluno) == -1){
+                //mostrar erro
+            }
+        header('location:../coord/turma.php?idTurma='.$idTurma.' &idEscola='.$idEscola. '&idRegional='.$idRegional);
         }
 }else if(isset($_GET["acao"])){
     $acao = $_GET['acao'];
@@ -33,9 +39,10 @@ if(isset($_POST['acao'])){
         $idAluno = $_GET['idAluno'];
         $idTurma = $_GET['idTurma'];
         $idEscola = $_GET['idEscola'];
+        $idRegional = $_POST['idRegional'];
         $a = new ControladorAluno();
         if($a->removerAluno($idAluno) == -1)
-            header('location:../coord/turma.php?idTurma=' . $idTurma . ' & idEscola=' . $idEscola);
+            header('location:../coord/turma.php?idTurma='.$idTurma.' &idEscola='.$idEscola. '&idRegional='.$idRegional);
     }
 }
 

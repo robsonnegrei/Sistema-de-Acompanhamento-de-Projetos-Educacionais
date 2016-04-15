@@ -125,7 +125,7 @@ if(isset($_POST['nomePesquisa'])){
                 <ul id="side-menu" class="nav">
                     
                      <div class="clearfix"></div>
-                    <li class="none"><a href="escola.php?idEscola=<?php echo $idRegional;?>&idRegional=<?php echo $idRegional?>"><i class="glyphicon glyphicon-book">
+                    <li class="none"><a href="escola.php?idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Escolas</span></a></li>
      
@@ -140,12 +140,12 @@ if(isset($_POST['nomePesquisa'])){
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Visitante</div>
+                            Coordenador</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         
                         
-                        <li class="active">Escolas</li>
+                        <li class="active"></li>
                     </ol>
                     <div class="clearfix">
                     </div>
@@ -153,58 +153,6 @@ if(isset($_POST['nomePesquisa'])){
                 <!--END TITLE & BREADCRUMB PAGE-->
                 <!--BEGIN CONTENT-->
                 <div class="page-content">
-                    <!--
-
-                    <div class="col-lg-12">
-                        <div class="list-group">
-                            <a class="list-group-item active">Pesquisar</a>
-                             <div id="generalTabContent" class="tab-content">
-                                    
-                                    <!-- SEGUNDA TAB
-                                
-                                <div id="tab-edit" class="tab-pane fade active in">
-                                        
-                                    <form action="/sape/visitante/pesquisar_alunos.php" method="post" class="form-horizontal">
-
-                                        <div class="form-group"><label class="col-xs-2 control-label">Nome aluno:</label>
-
-                                            <div class="col-xs-10 controls">
-                                                <div class="row">
-                                                    <div class="col-xs-10">
-                                                        <!-- <input name="nome" class="form-control" type="textarea">
-                                                        <input rows="3" class="form-control" name="nomePesquisa"/>
-
-                                                        <div class="row">
-                                                            <div class="col-xs-4">
-                                                                <a href="#">
-                                                                    <i class="glyphicons glyphicons-file-camera"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="hidden" name="idRegional" value="<?php //echo $idRegional; ?>" />
-                                                                <input type="hidden" name="acao" value="pesquisar"/>
-                                                            </div>
-                                                        </div>
-                                                            
-                                                        <div class="row">
-                                                            <div class="col-xs-4"></div>
-                                                            <div class="col-xs-4">
-                                                                <button type="submit" class="btn btn-green btn-block">Pesquisar</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                        
-                                                </div>
-                                            </div>
-                                         </div> 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>            
-
-                    -->
                     <div class="col-lg-12">
                         <div class="list-group">
                             <a class="list-group-item active">Alunos</a>
@@ -215,12 +163,12 @@ if(isset($_POST['nomePesquisa'])){
                                             foreach ($nomes as $aluno) {
                                         ?>
                                             <tr>
-                                                <td> <a href="=<?php echo $idRegional;?> & idAluno=<?php echo $aluno->idAluno;?>" class="list-group-item"><?php echo $aluno->nome_aluno;?></a></td>
+                                                <td><a href="edita-aluno.php?idAluno<?php echo $aluno->idAluno;?>&idEscola=<?php echo $aluno->idEscola;?>&idRegional=<?php echo $idRegional;?>" class="list-group-item"><?php echo $aluno->nome_aluno;?></a></td>
                                             </tr>
                                         <?php 
                                             }
                                         }else{
-                                            echo "<a class='list-group-item'><h3>Nenhum Resultado Encontrado</h3></a>";
+                                            echo "<p class='list-group-item'><h3>Nenhum Resultado Encontrado</h3></p>";
                                         }
                                         ?>
                         </div>

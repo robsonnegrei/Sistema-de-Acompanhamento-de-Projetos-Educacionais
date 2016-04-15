@@ -12,6 +12,7 @@ $controladorEscola = new ControladorEscola();
 
 
 $idEscola = $_GET['idEscola'];
+$idRegional = $_GET['idRegional'];
 $escola = $controladorEscola->buscarEscola($idEscola);
 
 
@@ -115,16 +116,10 @@ $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
             <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2" data-intro="Template has <b>many navigation styles</b>" data-position="right" class="navbar-default navbar-static-side">
             <div class="sidebar-collapse menu-scroll">
                 <ul id="side-menu" class="nav">
-                    
-                     <div class="clearfix"></div>
-                    <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Post</span></a></li>
-     
-                    
+                    <div class="clearfix"></div>
+                    <li class="none"><a href="escola.php?idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Escolas</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -232,6 +227,7 @@ $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
                                 
                                 <input type="hidden" name="acao_periodo" value="cadastrar"/>
                                 <input type="hidden" name="idEscola" value="<?php echo $idEscola;?>"/>
+                                <input type="hidden" name="idRegional" value="<?php echo $idRegional;?>"/>
 
 
                             </form>

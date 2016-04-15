@@ -59,7 +59,7 @@ $nome_usuario = $_SESSION['email_login'];
                 <a id="logo" href="index.php" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">SAPE</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
                 
                 <form action="../coord/pesquisar_alunos.php" method="post" class="navbar-form navbar-left" role="search">
-                    <?php if(!isset($idRegional)|| !isset($idEscola)){?>
+                    <?php if(isset($idRegional)&& isset($idEscola)){?>
                     <div class="form-group">
                         <input type="hidden" name="idRegional" value="<?php echo $idRegional;?>" />
                         <input type="hidden" name="idEscola" value="<?php echo $idEscola;?>" />
@@ -134,15 +134,18 @@ $nome_usuario = $_SESSION['email_login'];
             <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2" data-intro="Template has <b>many navigation styles</b>" data-position="right" class="navbar-default navbar-static-side">
             <div class="sidebar-collapse menu-scroll">
                 <ul id="side-menu" class="nav">
-                    
-                     <div class="clearfix"></div>
-                    <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Post</span></a></li>
-     
+
+                    <div class="clearfix"></div>
+                    <li class="active"><a href="index.php?regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"> <i class="glyphicon glyphicon-book">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Escolas</span></a></li>
+                    <li class="none"><a href="indexPost.php?id_regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>">
+                            <i class="glyphicon glyphicon-pencil">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Post</span></a></li>
+                    <li class="none"><a href="relatorio_regional.php?id_regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"><i class="glyphicon glyphicon-eye-open">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Gerar Relatório</span></a></li>
                     
                 </ul>
             </div>
@@ -157,12 +160,9 @@ $nome_usuario = $_SESSION['email_login'];
                             Visao Geral </div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
-                        
-                        
                         <li class="active">Regionais</li>
                     </ol>
-                    <div class="clearfix">
-                    </div>
+                    <div class="clearfix"></div>
                 </div>
                 <!--END TITLE & BREADCRUMB PAGE-->
                 <!--BEGIN CONTENT-->
@@ -171,42 +171,52 @@ $nome_usuario = $_SESSION['email_login'];
                             <h1>Escola <?php
                                 if(isset($escola)){ echo $escola->nome; } ?> : Turmas</h1>
                             <div class="col-lg-12">
-                                <div class="row">
+                                <div class="row mbl">
                                  <div class="col-lg-6">
-                                    <ul class="list-group">
-                                    <?php
-                                        if(!empty($turmas)){ 
-                                            
-                                            foreach ($turmas as $turma) {
-                                    ?>
-                                            <li>
-                                             <?php if(isset($turma)) {?>
-                                                 <a href="turma.php?idTurma=<?php echo $turma->idTurma;?>&idEscola=<?php echo $idEscola;?>" class="list-group-item">
-                                                     <?php echo $turma->nome_turma; ?>
-                                                </a><button onclick="window.location.href='../Controller/ControladorTurma.php?acao=excluir&idTurma=<?php echo $turma->idTurma?>&idEscola=<?php echo $idEscola?>'" type="button" class="btn btn-danger">Excluir</button>
-                                             <?php } ?>
-                                            </li>
+                                     <table>
+                                         <thead>
+                                            <td>Turma</td>
+                                            <td></td>
+                                         </thead>
+                                         <tbody>
+                                         <?php
+                                         if(!empty($turmas)){
 
-                                    <?php 
-                                            }
-                                        }else{
-                                            echo "<a class='list-group-item'>Não há Turmas</a>";
-                                        }
-                                    ?>
-                                    </ul>
+                                             foreach ($turmas as $turma) {
+                                                 ?>
+                                                 <tr>
+                                                     <?php if(is_object($turma) && isset($idEscola) && isset($idRegional)) {?>
+                                                         <td><a href="turma.php?idTurma=<?php echo $turma->idTurma;?>&idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>" class="list-group-item"><?php echo $turma->nome_turma;?></td>
+
+                                                        <td></a><button onclick="window.location.href='../Controller/ControladorTurma.php?acao=excluir&idTurma=<?php echo $turma->idTurma;?>&idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>'" type="button" class="btn btn-danger">Excluir</button></td>
+                                                     <?php }
+                                                     else{
+                                                         echo "<a class='list-group-item'>Não há Turmas</a>";
+                                                        }?>
+                                                 </tr>
+
+                                                 <?php
+                                             }
+                                         }else{
+                                             echo "<a class='list-group-item'>Não há Turmas</a>";
+                                         }
+                                         ?>
+                                         </tbody>
+                                     </table>
                                 </div>
                                 </div>
                             
-                              <?php if(isset($idEscola)){ ?> <button onclick="window.location.href='cadastro-turma.php?idEscola=<?php echo $idEscola;?>
-                              '" type="button" class="btn btn-danger">Adicionar Turma</button>
+                              <?php if(isset($idEscola)){ ?>
+                                  <button onclick="window.location.href='cadastro-turma.php?idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>'" type="button" class="btn btn-blue">Adicionar Turma</button>
                               <?php }?>
                             </div>
                             
                         </div>
                     
-<?php if (isset($idEscola)){ ?> <button onclick="window.location.href='avaliar-alunos.php?idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-primary">Avaliar Alunos da Escola</button>
-<button onclick="window.location.href='relatorio.php?idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-warning">Gerar Relatório Escolar</button>
-<?php } ?>
+                        <?php if (isset($idEscola)){ ?>
+                             <button onclick="window.location.href='avaliar-alunos.php?idEscola=<?php echo $idEscola;?>&idRegional=<?php echo $idRegional;?>'" m'type="button" class="btn btn-primary">Avaliar Alunos da Escola</button>
+                             <button onclick="window.location.href='relatorio.php?idEscola=<?php echo $idEscola;?>'" type="button" class="btn btn-warning">Gerar Relatório Escolar</button>
+                        <?php } ?>
 
 </div>
                 <!--END CONTENT-->

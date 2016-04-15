@@ -16,6 +16,7 @@ if(isset($_POST['acao_periodo'])){
         $controladorAluno = new ControladorAluno();
         $controladorPeriodo = new ControladorPeriodo();
         $idEscola = $_POST['idEscola'];
+        $idRegional = $_POST['idRegional'];
         $periodo = $_POST['periodo'];
         $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
         if($alunos == -1){
@@ -29,13 +30,13 @@ if(isset($_POST['acao_periodo'])){
                 if($c->editar($nivel_aluno, $periodo, $aluno->idAluno) == -1) {
                     //mostrar erro
                 }
-                header('location:../coord/escola.php?idEscola=' . $idEscola);
+                header('location:../coord/escola.php?idEscola='.$idEscola+'&idRegional='.$idRegional);
             }else{
                 $c = new ControladorPeriodo();
                 if($c->cadastrarNivelDoAlunoPeriodo($periodo, $nivel_aluno, $aluno->idAluno)== -1) {
                     //mostrar erro
                 }
-                header('location:../coord/escola.php?idEscola=' . $idEscola);
+                header('location:../coord/escola.php?idEscola='.$idEscola+'&idRegional='.$idRegional);
             }
         }
     }

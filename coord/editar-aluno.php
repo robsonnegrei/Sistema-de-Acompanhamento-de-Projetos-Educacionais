@@ -9,6 +9,7 @@ if(!isset($_SESSION)){
 
 
 $idAluno = $_GET['idAluno'];
+$idRegional = $_GET['idRegional'];
 $controleAluno = new ControladorAluno();
 $controleTurmas = new ControladorTurma();
 $aluno = new Aluno();
@@ -118,16 +119,11 @@ $turmas = $controleTurmas->buscarTurmasEscola($idEscola);
             <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2" data-intro="Template has <b>many navigation styles</b>" data-position="right" class="navbar-default navbar-static-side">
             <div class="sidebar-collapse menu-scroll">
                 <ul id="side-menu" class="nav">
-                    
-                    <div class="clearfix"></div>
-                    <li class="active"><a href="index.php"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Escolas</span></a></li>
 
-                    <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Post</span></a></li>
-     
+                    <div class="clearfix"></div>
+                    <li class="active"><a href="index.php?regional=<?php if(isset($idRegional)) echo $idRegional; else{ ?> # <?php }?>"> <i class="glyphicon glyphicon-book">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Escolas</span></a></li>
                     
                 </ul>
             </div>
@@ -205,41 +201,8 @@ $turmas = $controleTurmas->buscarTurmasEscola($idEscola);
                                             <input type="hidden" name="acao" value="editar"/>
                                             <input type="hidden" name="idEscola" value="<?php echo $idEscola;?>">
                                             <input type="hidden" name="idTurma" value="<?php echo $aluno->idTurma;?>">
+                                            <input type="hidden" name="idRegional" value="<?php echo $idRegional;?>">
                                             <input type="hidden" name="idAluno" value="<?php echo $aluno->idAluno; ?>"/>
-                                            <!--
-                                            <div class="form-group"><label class="col-sm-3 control-label">Password</label>
-
-                                                <div class="col-sm-9 controls">
-                                                    <div class="row">
-                                                        <div class="col-xs-4"><input placeholder="password" class="form-control" type="password"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group"><label class="col-sm-3 control-label">Confirm Password</label>
-
-                                                <div class="col-sm-9 controls">
-                                                    <div class="row">
-                                                        <div class="col-xs-4"><input placeholder="password" class="form-control" type="password"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             -->
-                                            
-
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-
-                                            
-                                            
-                                            
-                                            
                                             <hr>
                                             <button type="submit" class="btn btn-green btn-block">Salvar Alterações</button>
                                         </form>
