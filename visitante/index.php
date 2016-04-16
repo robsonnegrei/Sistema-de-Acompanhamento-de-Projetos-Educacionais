@@ -1,11 +1,10 @@
 <?php 
 include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorRegional.php';
-include_once '../Controller/ControlePost.php';
+
 $cr = new ControladorRegional();
-
-$todasRegionais = $cr->buscarTodasRegionais()
-
+if(is_array( $cr->buscarTodasRegionais()))
+    $todasRegionais = $cr->buscarTodasRegionais();
 ?>
 
 <head>
@@ -171,14 +170,16 @@ $todasRegionais = $cr->buscarTodasRegionais()
                         <div class="list-group">
                           <a class="list-group-item active">Regionais</a>
                           
-                          <?php 
-                            foreach ($todasRegionais as $regional) {
-                          ?>
-                          
-                          <a href="regional_visitante.php?id_regional=<?php echo $regional->idRegional; ?> & opcao=visitante" class="list-group-item"><?php echo $regional->nome; ?></a>
-                          
                           <?php
-                            } 
+                            if(is_array($todasRegionais)) {
+                                foreach ($todasRegionais as $regional) {
+                                    ?>
+                                    <a href="regional_visitante.php?id_regional=<?php echo $regional->idRegional; ?> & opcao=visitante"
+                                       class="list-group-item"><?php echo $regional->nome; ?></a>
+
+                                    <?php
+                                }
+                            }
                           ?>
                           
                         </div>

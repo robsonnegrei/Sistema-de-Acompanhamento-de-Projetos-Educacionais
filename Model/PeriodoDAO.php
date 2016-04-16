@@ -18,14 +18,17 @@ class PeriodoDAO{
     }
     public function inserir(Periodo $periodo){
             $sql = "insert into periodo(nivel, idAluno, idPeriodo) values (?,?,?)";
-            $a = $this->conexao->prepare($sql);
+            $a = $this->conexao;
+            if($a != null) {
+               $a = $a->prepare($sql);
 
-            $a->bindParam(1, $periodo->nivel);
-            $a->bindParam(2, $periodo->idAluno);
-            $a->bindParam(3, $periodo->idPeriodo);
-            if( !$a->execute())
-                return -1;
-            return 1;
+                $a->bindParam(1, $periodo->nivel);
+                $a->bindParam(2, $periodo->idAluno);
+                $a->bindParam(3, $periodo->idPeriodo);
+                if (!$a->execute())
+                    return -1;
+                return 1;
+            } return -1;
     }
     public function editar($periodo){
         $nivel = $periodo->nivel;
@@ -34,63 +37,78 @@ class PeriodoDAO{
 
             $sql = "update periodo set nivel= ? where idPeriodo = ? and idAluno = ?";
 
-            $a = $this->conexao->prepare($sql);
+            $a = $this->conexao;
+            if($a != null) {
+               $a = $a->prepare($sql);
 
-            $a->bindParam(1, $nivel);
-            $a->bindParam(2, $idPeriodo);
-            $a->bindParam(3, $idAluno);
-            if(! $a->execute())
-                return -1;
-            return 1;
+                $a->bindParam(1, $nivel);
+                $a->bindParam(2, $idPeriodo);
+                $a->bindParam(3, $idAluno);
+                if (!$a->execute())
+                    return -1;
+                return 1;
+            } return -1;
     }
     public function remover(Periodo $periodo){
 
             $sql = "delete from periodo where idPeriodo = ? ";
-            $a = $this->conexao->prepare($sql);
-            $a->bindParam(1,$periodo->getIdPeriodo());
-            if(! $a->execute())
-                return -1;
-            return 1;
+            $a = $this->conexao;
+            if($a != null) {
+                $a = $a->prepare($sql);
+
+                $a->bindParam(1, $periodo->getIdPeriodo());
+                if (!$a->execute())
+                    return -1;
+                return 1;
+            } return -1;
     }
     public function editarPeriodo(Periodo $periodo){
 
             $sql = "update periodo set nivel = ?, idAluno = ? where idPeriodo= ?";
+            $a = $this->conexao;
+            if($a != null) {
+                $a = $a->prepare($sql);
+                $a->bindParam(1, $periodo->getNivel());
+                $a->bindParam(2, $periodo->getIdAluno());
+                $a->bindParam(3, $periodo->getIdPeriodo());
 
-            $a = $this->conexao->prepare($sql);
-            $a->bindParam(1,$periodo->getNivel());
-            $a->bindParam(2,$periodo->getIdAluno());
-            $a->bindParam(3,$periodo->getIdPeriodo());
-
-            if(!$a->execute())
-                return -1;
-            return 1;
+                if (!$a->execute())
+                    return -1;
+                return 1;
+            } return -1;
 
     }
     public function getIdAlunoPeriodo(Periodo $periodo){
 
             $sql = "select * from periodo where idPeriodo = ".$periodo->idPeriodo;
-            $resultado = $this->conexao->query($sql);
-            if(!isset($resultado))
-                return -1;
-            $arrayIdAlunos = array();
-            foreach ($resultado as $valor) {
-                # code...
-                $aluno = new Aluno();
-                $aluno->idAluno = $valor['idAluno'];
-                $aluno->nivel = $valor['nivel'];
-                array_push($arrayIdAlunos, $aluno);
-            }
-            return $arrayIdAlunos;
+            $resultado = $this->conexao;
+            if($resultado != null) {
+                $resultado = $resultado->prepare($sql);
+                if (!isset($resultado))
+                    return -1;
+                $arrayIdAlunos = array();
+                foreach ($resultado as $valor) {
+                    # code...
+                    $aluno = new Aluno();
+                    $aluno->idAluno = $valor['idAluno'];
+                    $aluno->nivel = $valor['nivel'];
+                    array_push($arrayIdAlunos, $aluno);
+                }
+                return $arrayIdAlunos;
+            } return -1;
     }
     public function getNivelAluno($idPeriodo,$idAluno){
             $sql = "select *from periodo where idPeriodo = ? and idAluno = ?";
-            $stm = $this->conexao->prepare($sql);
-            $stm->bindParam(1,$idPeriodo);
-            $stm->bindParam(2,$idAluno);
-            if(!$stm->execute())
-                return -1;
-            $dados = $stm->fetchObject();
-            return $dados;
+            $stm = $this->conexao;
+            if($stm != null) {
+                $stm = $stm->prepare($sql);
+                $stm->bindParam(1, $idPeriodo);
+                $stm->bindParam(2, $idAluno);
+                if (!$stm->execute())
+                    return -1;
+                $dados = $stm->fetchObject();
+                return $dados;
+            }return -1;
     }
     public function getValoresEscolaPeriodo($idEscola, $periodo){
         $controladorAluno = new ControladorAluno();
@@ -100,14 +118,18 @@ class PeriodoDAO{
                 return -1;
             foreach ($alunos as $aluno) {
                 # code...
-                $sql = "select nivel from periodo where idPeriodo = ".$periodo." and idAluno = ".$aluno->idAluno;
-                $resultado = $this->conexao->query($sql);
+                $sql = "select nivel from periodo where idPeriodo = " . $periodo . " and idAluno = " . $aluno->idAluno;
+                $resultado = $this->conexao;
+                $resultado = $this->conexao;
+                if ($resultado != null) {
+                    $resultado = $resultado->prepare($sql);
 
-                foreach ($resultado as $valor) {
-                    # code...
-                    array_push($array_valores, $valor['nivel']);
+                    foreach ($resultado as $valor) {
+                        # code...
+                        array_push($array_valores, $valor['nivel']);
+                    }
                 }
-            }
-        return $array_valores;
+                return $array_valores;
+            } return -1;
     }
 }

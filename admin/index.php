@@ -1,6 +1,6 @@
 <?php
 include_once '../Controller/ControladorRegional.php';
-    if(!isset($_SESSION))
+if(!isset($_SESSION))
         session_start();
 
     $EXISTE_REGIONAL = true;

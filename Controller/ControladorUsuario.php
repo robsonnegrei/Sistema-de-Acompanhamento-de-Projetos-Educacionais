@@ -5,8 +5,6 @@
  * Date: 21/01/16
  * Time: 03:25
  */
-
-
 include_once '../Model/AlunoDAO.php';
 include_once '../Model/UsuarioDAO.php';
 include_once 'Conexao.php';
@@ -33,7 +31,7 @@ if(isset($_POST['acao'])) {
             if ($c->editar($email, $senha, $idRegional, $id) == -1) {
                 //MostrarErro
             }
-            header('location:../admin/regional.php?id_regional_selec=' . $idRegional);
+            header('location:../admin/regional.php?id_regional_selec='.$idRegional);
         }
 }
 if (isset($_GET['acao'])) {
@@ -112,3 +110,4 @@ if (isset($_GET['acao'])) {
             return $this->dao->getAllUsuarios();
         }
     }
+?>

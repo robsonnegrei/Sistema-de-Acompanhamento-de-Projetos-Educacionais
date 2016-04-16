@@ -18,11 +18,10 @@ class Conexao{
         }
         else{
         	try {
-        		
             	return new PDO('mysql:host=localhost;dbname=sape', 'root',
                 '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         	} catch (Exception $e) {
-        		return false;	
+        			return null;
         	}
         }
     }

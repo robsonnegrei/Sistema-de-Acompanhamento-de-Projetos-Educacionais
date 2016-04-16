@@ -8,8 +8,10 @@ if(isset($_POST['acao'])) {
     if ($acao == "cadastrar") {
         $nome = $_POST['nome'];
         $c = new ControladorRegional();
-        if ($c->cadastrarRegional($nome) == -1)
-            header('location:../admin/index.php');
+        if ($c->cadastrarRegional($nome) == -1){
+            //mostrar erro
+        }
+        header('location:../admin/index.php');
 
     }
 }
