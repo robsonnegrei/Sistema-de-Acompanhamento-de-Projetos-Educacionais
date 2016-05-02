@@ -171,7 +171,7 @@ if(is_array( $cr->buscarTodasRegionais()))
                           <a class="list-group-item active">Regionais</a>
                           
                           <?php
-                            if(is_array($todasRegionais)) {
+                            if($todasRegionais != null) {
                                 foreach ($todasRegionais as $regional) {
                                     ?>
                                     <a href="regional_visitante.php?id_regional=<?php echo $regional->idRegional; ?> & opcao=visitante"

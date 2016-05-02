@@ -15,30 +15,25 @@ if(isset($_POST['acao_periodo'])){
     if($acao == "cadastrar"){
         $controladorAluno = new ControladorAluno();
         $controladorPeriodo = new ControladorPeriodo();
+
         $idEscola = $_POST['idEscola'];
         $idRegional = $_POST['idRegional'];
         $periodo = $_POST['periodo'];
         $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
-        if($alunos == -1){
-            // mostrar erro
-        }
-        foreach ($alunos as $aluno) {
-            $nivel_aluno = $_POST['id' . $aluno->idAluno];
 
-            if ($controladorPeriodo->existe($periodo, $aluno->idAluno)) {
-                $c = new ControladorPeriodo();
-                if($c->editar($nivel_aluno, $periodo, $aluno->idAluno) == -1) {
-                    //mostrar erro
-                }
-                header('location:../coord/escola.php?idEscola='.$idEscola+'&idRegional='.$idRegional);
+        foreach ($alunos as $aluno){
+            $nivel_aluno = $_POST['id' . $aluno->idAluno];
+            if ($controladorPeriodo->existe($periodo, $aluno->idAluno)){
+
+                $controladorPeriodo->editar($nivel_aluno, $periodo, $aluno->idAluno);
+
             }else{
-                $c = new ControladorPeriodo();
-                if($c->cadastrarNivelDoAlunoPeriodo($periodo, $nivel_aluno, $aluno->idAluno)== -1) {
+                if($controladorPeriodo->cadastrarNivelDoAlunoPeriodo($periodo, $nivel_aluno, $aluno->idAluno)== -1) {
                     //mostrar erro
                 }
-                header('location:../coord/escola.php?idEscola='.$idEscola+'&idRegional='.$idRegional);
             }
         }
+        header('location:../coord/escola.php?idEscola='.$idEscola+'&idRegional='.$idRegional);
     }
 }
     

@@ -11,21 +11,15 @@ class RegionalDAO{
 	}
 	public function getAllRegionais(){
 			$sql = "select * from regional";
-			$resultado = $this->conexao;
-			if($resultado != null) {
-				$resultado2 = $resultado->query($sql);
-				if (!isset($resultado))
-					return -1;
+			if($this->conexao != null) {
+				$resultado = $this->conexao->query($sql);
 				$regionais = array();
-				foreach ($resultado2 as $value) {
-					$regional = new regional();
-					$regional->idRegional = $value['idRegional'];
-					$regional->nome = $value['nome'];
+				while ($regional = $resultado->fetchObject()) {
 					array_push($regionais, $regional);
 				}
 				return $regionais;
 			}
-			return $resultado;
+			return null;
 	}
 	public function getRegionalPorId($idRegional){
 			$sql = "select *from regional where idRegional = ?";
