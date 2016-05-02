@@ -56,8 +56,3 @@ create table imagem(
 idPost integer,
 idImagem text
 );
-
-insert into admin(email, senha) values('admin@sape.com', '123');
-insert into regional(idRegional, nome) values('1', 'Campo Novo');
-insert into escola(idEscola,idRegional, nome) values('1','1','E.E.F.Jean Silva');
-insert into turma(idTurma,idEscola, nome_turma) values('1','1','5° B');
