@@ -1,14 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lucas
- * Date: 21/01/16
- * Time: 03:52
- */
 include_once '../Model/PeriodoDAO.php';
 include_once 'ControladorAluno.php';
 include_once 'Conexao.php';
-
 
 if(isset($_POST['acao_periodo'])){
     $acao = $_POST['acao_periodo'];

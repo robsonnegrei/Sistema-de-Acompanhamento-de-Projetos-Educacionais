@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c77eb384-ebec-45b9-9b60-bf98dce9fe06" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/coord/gerar_pdf.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/Conexao.php" afterPath="$PROJECT_DIR$/Controller/Conexao.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/ControladorPeriodo.php" afterPath="$PROJECT_DIR$/Controller/ControladorPeriodo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/RegionalDAO.php" afterPath="$PROJECT_DIR$/Model/RegionalDAO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/visitante/index.php" afterPath="$PROJECT_DIR$/visitante/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/AlunoDAO.php" afterPath="$PROJECT_DIR$/Model/AlunoDAO.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/PeriodoDAO.php" afterPath="$PROJECT_DIR$/Model/PeriodoDAO.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coord/pesquisar_alunos.php" afterPath="$PROJECT_DIR$/coord/pesquisar_alunos.php" />
     </list>
     <ignored path="SME-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +30,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coord/index.php">
+      <file leaf-file-name="escola.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coord/escola.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            <state relative-caret-position="330">
+              <caret line="66" column="106" selection-start-line="66" selection-start-column="106" selection-end-line="66" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PeriodoDAO.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/PeriodoDAO.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="56" column="59" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+              <folding>
+                <marker date="1462453216534" expanded="true" signature="355:416" placeholder="insert into periodo... " />
+                <marker date="1462453216534" expanded="true" signature="977:1040" placeholder="update perio... " />
+                <marker date="1462453216534" expanded="true" signature="1470:1509" placeholder="delete from " />
+                <marker date="1462453216534" expanded="true" signature="1864:1924" placeholder="update perio... " />
+                <marker date="1462453216534" expanded="true" signature="2407:2447" placeholder="select * fro... periodo" />
+                <marker date="1462453216534" expanded="true" signature="3174:3230" placeholder="select *from... periodo" />
+                <marker date="1462453216534" expanded="true" signature="4005:4048" placeholder="select nivel... periodo" />
+                <marker date="1462453216534" expanded="true" signature="4005:4065" placeholder="select nivel... periodo" />
+                <marker date="1462453216534" expanded="true" signature="4005:4066" placeholder="select nivel... periodo" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pesquisar_alunos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coord/pesquisar_alunos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControladorAluno.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/ControladorAluno.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="457">
+              <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlunoDAO.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/AlunoDAO.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="142" column="48" selection-start-line="142" selection-start-column="48" selection-end-line="142" selection-end-column="48" />
+              <folding>
+                <marker date="1462453472776" expanded="true" signature="267:318" placeholder="insert into aluno... " />
+                <marker date="1462453472776" expanded="true" signature="647:682" placeholder="delete from " />
+                <marker date="1462453472776" expanded="true" signature="954:991" placeholder="select * fro... aluno" />
+                <marker date="1462453472776" expanded="true" signature="1359:1378" placeholder="select * fro... aluno" />
+                <marker date="1462453472776" expanded="true" signature="1724:1761" placeholder="select * fro... aluno" />
+                <marker date="1462453472776" expanded="true" signature="2076:2137" placeholder="update aluno... " />
+                <marker date="1462453472776" expanded="true" signature="2483:2633" placeholder="select a.idA... aluno" />
+                <marker date="1462453472776" expanded="true" signature="3123:3164" placeholder="select *from... aluno" />
+                <marker date="1462453472776" expanded="true" signature="3123:3165" placeholder="select *from... aluno" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Aluno.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/Aluno.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,7 +148,6 @@
         <option value="$PROJECT_DIR$/coord/cadastro-turma.php" />
         <option value="$PROJECT_DIR$/coord/index.php" />
         <option value="$PROJECT_DIR$/Controller/ControladorTurma.php" />
-        <option value="$PROJECT_DIR$/coord/pesquisar_alunos.php" />
         <option value="$PROJECT_DIR$/coord/avaliar-alunos.php" />
         <option value="$PROJECT_DIR$/coord/cadastro-aluno.php" />
         <option value="$PROJECT_DIR$/coord/escola.php" />
@@ -87,8 +158,6 @@
         <option value="$PROJECT_DIR$/Controller/ControladorRegional.php" />
         <option value="$PROJECT_DIR$/Controller/ControladorUsuario.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
-        <option value="$PROJECT_DIR$/Model/AlunoDAO.php" />
-        <option value="$PROJECT_DIR$/Model/PeriodoDAO.php" />
         <option value="$PROJECT_DIR$/Model/PostDAO.php" />
         <option value="$PROJECT_DIR$/Model/TurmaDAO.php" />
         <option value="$PROJECT_DIR$/Model/UsuarioDAO.php" />
@@ -97,6 +166,9 @@
         <option value="$PROJECT_DIR$/Model/RegionalDAO.php" />
         <option value="$PROJECT_DIR$/Controller/ControladorPeriodo.php" />
         <option value="$PROJECT_DIR$/Controller/Conexao.php" />
+        <option value="$PROJECT_DIR$/Model/PeriodoDAO.php" />
+        <option value="$PROJECT_DIR$/coord/pesquisar_alunos.php" />
+        <option value="$PROJECT_DIR$/Model/AlunoDAO.php" />
       </list>
     </option>
   </component>
@@ -140,6 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -169,13 +242,40 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SAPE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SAPE" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="coord" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SAPE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SAPE" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,17 +375,18 @@
       <workItem from="1461844008745" duration="2189000" />
       <workItem from="1461853750144" duration="1012000" />
       <workItem from="1461888869226" duration="15066000" />
+      <workItem from="1462449040400" duration="4897000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190052000" />
+    <option name="totallyTimeSpent" value="194949000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -341,13 +442,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/visitante/aluno_visitante.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="128" column="71" selection-start-line="128" selection-start-column="71" selection-end-line="128" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/Regional.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -397,27 +491,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/0.12-rc19/examples/TestePdf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/0.12-rc19/examples/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/0.12-rc19/readme.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="126" column="20" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/0.12-rc19/examples/TestePdf.php" />
+    <entry file="file://$PROJECT_DIR$/0.12-rc19/examples/test.php" />
+    <entry file="file://$PROJECT_DIR$/0.12-rc19/readme.php" />
     <entry file="file://$PROJECT_DIR$/visitante/gerar_pdf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
@@ -496,13 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coord/pesquisar_alunos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="125" column="18" selection-start-line="125" selection-start-column="18" selection-end-line="129" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/Turma.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -524,20 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coord/avaliar-alunos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="121" column="80" selection-start-line="121" selection-start-column="80" selection-end-line="121" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coord/escola.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coord/turma.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2890">
@@ -549,13 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-493">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ControladorAluno.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -594,13 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/PeriodoDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="123" column="30" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/TurmaDAO.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
@@ -633,24 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="173" column="55" selection-start-line="173" selection-start-column="55" selection-end-line="173" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/AlunoDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1812">
-          <caret line="138" column="39" selection-start-line="138" selection-start-column="39" selection-end-line="138" selection-end-column="39" />
-          <folding>
-            <marker date="1461077182473" expanded="true" signature="267:318" placeholder="insert into aluno... " />
-            <marker date="1461077182473" expanded="true" signature="647:682" placeholder="delete from " />
-            <marker date="1461077182473" expanded="true" signature="954:991" placeholder="select * fro... aluno" />
-            <marker date="1461077182473" expanded="true" signature="1359:1378" placeholder="select * fro... aluno" />
-            <marker date="1461077182473" expanded="true" signature="1724:1761" placeholder="select * fro... aluno" />
-            <marker date="1461077182473" expanded="true" signature="2076:2137" placeholder="update aluno... " />
-            <marker date="1461077182473" expanded="true" signature="2483:2633" placeholder="select a.idA... aluno" />
-            <marker date="1461077182473" expanded="true" signature="3123:3179" placeholder="select *from... aluno" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,14 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <marker date="1461939211752" expanded="true" signature="239:259" placeholder="select * fro... escola" />
-            <marker date="1461939211752" expanded="true" signature="580:621" placeholder="select * fro... escola" />
-            <marker date="1461939211752" expanded="true" signature="999:1038" placeholder="select * fro... escola" />
-            <marker date="1461939211752" expanded="true" signature="1300:1349" placeholder="insert into escola... " />
-            <marker date="1461939211752" expanded="true" signature="1652:1689" placeholder="delete from " />
-            <marker date="1461939211752" expanded="true" signature="1944:1988" placeholder="update escol... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -673,12 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-          <folding>
-            <marker date="1461077182520" expanded="true" signature="255:307" placeholder="insert into posts... " />
-            <marker date="1461077182520" expanded="true" signature="599:637" placeholder="select *from... posts" />
-            <marker date="1461077182520" expanded="true" signature="993:1011" placeholder="select *from... posts" />
-            <marker date="1461077182520" expanded="true" signature="1334:1368" placeholder="delete from " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -686,21 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-          <folding>
-            <marker date="1461947020355" expanded="true" signature="273:295" placeholder="select * fro... regional" />
-            <marker date="1461947020355" expanded="true" signature="606:648" placeholder="select *from... regional" />
-            <marker date="1461947020355" expanded="true" signature="1155:1192" placeholder="insert into regional... " />
-            <marker date="1461947020355" expanded="true" signature="1426:1467" placeholder="delete from " />
-            <marker date="1461947020355" expanded="true" signature="1732:1780" placeholder="update regio... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ControladorPeriodo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -708,15 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/Conexao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,6 +709,98 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/Conexao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coord/avaliar-alunos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="125" column="10" selection-start-line="125" selection-start-column="10" selection-end-line="125" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/ControladorPeriodo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Aluno.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/PeriodoDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="56" column="59" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+          <folding>
+            <marker date="1462453216534" expanded="true" signature="355:416" placeholder="insert into periodo... " />
+            <marker date="1462453216534" expanded="true" signature="977:1040" placeholder="update perio... " />
+            <marker date="1462453216534" expanded="true" signature="1470:1509" placeholder="delete from " />
+            <marker date="1462453216534" expanded="true" signature="1864:1924" placeholder="update perio... " />
+            <marker date="1462453216534" expanded="true" signature="2407:2447" placeholder="select * fro... periodo" />
+            <marker date="1462453216534" expanded="true" signature="3174:3230" placeholder="select *from... periodo" />
+            <marker date="1462453216534" expanded="true" signature="4005:4048" placeholder="select nivel... periodo" />
+            <marker date="1462453216534" expanded="true" signature="4005:4065" placeholder="select nivel... periodo" />
+            <marker date="1462453216534" expanded="true" signature="4005:4066" placeholder="select nivel... periodo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/ControladorAluno.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/AlunoDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="142" column="48" selection-start-line="142" selection-start-column="48" selection-end-line="142" selection-end-column="48" />
+          <folding>
+            <marker date="1462453472776" expanded="true" signature="267:318" placeholder="insert into aluno... " />
+            <marker date="1462453472776" expanded="true" signature="647:682" placeholder="delete from " />
+            <marker date="1462453472776" expanded="true" signature="954:991" placeholder="select * fro... aluno" />
+            <marker date="1462453472776" expanded="true" signature="1359:1378" placeholder="select * fro... aluno" />
+            <marker date="1462453472776" expanded="true" signature="1724:1761" placeholder="select * fro... aluno" />
+            <marker date="1462453472776" expanded="true" signature="2076:2137" placeholder="update aluno... " />
+            <marker date="1462453472776" expanded="true" signature="2483:2633" placeholder="select a.idA... aluno" />
+            <marker date="1462453472776" expanded="true" signature="3123:3164" placeholder="select *from... aluno" />
+            <marker date="1462453472776" expanded="true" signature="3123:3165" placeholder="select *from... aluno" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coord/pesquisar_alunos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coord/escola.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="66" column="106" selection-start-line="66" selection-start-column="106" selection-end-line="66" selection-end-column="106" />
           <folding />
         </state>
       </provider>

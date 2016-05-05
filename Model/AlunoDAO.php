@@ -132,14 +132,12 @@ class AlunoDAO{
 
 	}
 	public function pesquisarAluno($nome){
-		$sql = "select *from aluno where nome_aluno like '" . $nome . "' ";
-
-		$stm = $this->conexao;
-		if(!is_bool($stm)) {
-			$stm = $stm->prepare($sql);
-
+		$sql = "select *from aluno where nome_aluno like ? ";
+		if($this->conexao != null) {
+			$stm = $this->conexao->prepare($sql);
+			$stm->bindParam(1, $nome);
 			$resultado = $stm->execute();
-			if (is_object($resultado)) {
+			if (isset($resultado)) {
 				$alunos = array();
 				while ($aluno = $stm->fetchObject())
 					array_push($alunos, $aluno);

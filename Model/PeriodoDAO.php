@@ -52,10 +52,8 @@ class PeriodoDAO{
     public function remover(Periodo $periodo){
 
             $sql = "delete from periodo where idPeriodo = ? ";
-            $a = $this->conexao;
-            if($a != null) {
-                $a = $a->prepare($sql);
-
+            if($this->conexao != null) {
+                $a = $this->conexao->prepare($sql);
                 $a->bindParam(1, $periodo->getIdPeriodo());
                 if (!$a->execute())
                     return -1;
@@ -82,8 +80,8 @@ class PeriodoDAO{
 
             $sql = "select * from periodo where idPeriodo = ".$periodo->idPeriodo;
             $resultado = $this->conexao;
-            if($resultado != null) {
-                $resultado = $resultado->prepare($sql);
+            if($this->conexao != null) {
+                $resultado = $this->conexao->query($sql);
                 if (!isset($resultado))
                     return -1;
                 $arrayIdAlunos = array();
@@ -111,21 +109,23 @@ class PeriodoDAO{
             }return -1;
     }
     public function getValoresEscolaPeriodo($idEscola, $periodo){
+        echo "passou em getValoresPeriodo";
         $controladorAluno = new ControladorAluno();
         $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
         $array_valores = array();
             if(!isset($alunos))
                 return -1;
             foreach ($alunos as $aluno) {
-                # code...
-                $sql = "select nivel from periodo where idPeriodo = " . $periodo . " and idAluno = " . $aluno->idAluno;
-                $resultado = $this->conexao;
-                $resultado = $this->conexao;
-                if ($resultado != null) {
-                    $resultado = $resultado->prepare($sql);
+                $sql = "select nivel from periodo where idPeriodo = ? and idAluno = ?";
 
-                    foreach ($resultado as $valor) {
-                        # code...
+                if ($this->conexao != null) {
+                    $resultado = $this->conexao->prepare($sql);
+                    $resultado->bindParam(1, $periodo);
+                    $resultado->bindParam(2, $aluno->idAluno);
+
+                    $resultado->execute();
+
+                    foreach ($resultado as $valor){
                         array_push($array_valores, $valor['nivel']);
                     }
                 }
